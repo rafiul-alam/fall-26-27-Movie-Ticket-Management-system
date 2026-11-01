@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Theater - Ticket Buyer</title>
+</head>
+
+<body>
+
+    <h1>Movie Theater</h1>
+    <p>Welcome to Our Online Ticket Booking System</p>
+
+    <hr>
+
+    <nav>
+        <a href="#booking">Book Ticket</a> |
+        <a href="#buyer">Buyer Information</a> |
+        <a href="#cancellation">Cancellation & Refund</a> |
+        <a href="#digital-ticket">Digital Ticket</a>
+    </nav>
+
+    <hr>
+
+    <h2 id="booking">Book Your Movie Ticket</h2>
+
+    <form action="#" method="post">
+
+        <fieldset>
+            <legend>Movie Details</legend>
+
+            <label for="movie">Choose Movie:</label>
+            <select id="movie" name="movie" required>
+                <option value="">Select a Movie</option>
+                <option value="Avengers">Avengers</option>
+                <option value="Interstellar">Interstellar</option>
+                <option value="Inception">Inception</option>
+                <option value="Titanic">Titanic</option>
+            </select>
+
+            <br><br>
+
+            <label for="date">Show Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <br><br>
+
+            <label for="time">Show Time:</label>
+            <select id="time" name="time" required>
+                <option value="">Select Time</option>
+                <option>10:00 AM</option>
+                <option>01:00 PM</option>
+                <option>04:00 PM</option>
+                <option>07:00 PM</option>
+                <option>09:00 PM</option>
+            </select>
+        </fieldset>
+
+        <br>
+
+        <fieldset>
+            <legend>Ticket Details & Seat Selection</legend>
+
+            <label for="quantity">Number of Tickets:</label>
+            <input type="number" id="quantity" name="quantity" min="1" max="10" required>
+
+            <br><br>
+
+            <label for="category">Seat Category:</label>
+            <select id="category" name="category" required>
+                <option value="">Select Seat</option>
+                <option>Regular</option>
+                <option>Premium</option>
+                <option>VIP</option>
+            </select>
+
+            <br><br>
+
+            <h3>Choose Your Seats</h3>
+
+            <p>SCREEN THIS WAY</p>
+
+            <h4>Row A</h4>
+            <input type="checkbox" name="seat[]" value="A1"> A1
+            <input type="checkbox" name="seat[]" value="A2"> A2
+            <input type="checkbox" name="seat[]" value="A3"> A3
+            <input type="checkbox" name="seat[]" value="A4"> A4
+
+            <h4>Row B</h4>
+            <input type="checkbox" name="seat[]" value="B1"> B1
+            <input type="checkbox" name="seat[]" value="B2"> B2
+            <input type="checkbox" name="seat[]" value="B3"> B3
+            <input type="checkbox" name="seat[]" value="B4"> B4
+
+            <h4>Row C</h4>
+            <input type="checkbox" name="seat[]" value="C1"> C1
+            <input type="checkbox" name="seat[]" value="C2"> C2
+            <input type="checkbox" name="seat[]" value="C3"> C3
+            <input type="checkbox" name="seat[]" value="C4"> C4
+
+        </fieldset>
+
+        <br>
+
+        <fieldset id="buyer">
+            <legend>Buyer Information</legend>
+
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <br><br>
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <br><br>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+        </fieldset>
+
+        <br>
+
+        <fieldset>
+            <legend>Payment Method</legend>
+
+            <input type="radio" id="bkash" name="payment" value="bKash" required>
+            <label for="bkash">bKash</label>
+
+            <input type="radio" id="nagad" name="payment" value="Nagad">
+            <label for="nagad">Nagad</label>
+
+            <input type="radio" id="card" name="payment" value="Card">
+            <label for="card">Card</label>
+
+        </fieldset>
+
+        <br>
+
+        <button type="submit">Book Ticket</button>
+        <button type="reset">Clear Form</button>
+
+    </form>
+
+    <hr>
+
+    <h2 id="cancellation">Ticket Cancellation & Refund Request</h2>
+
+    <form action="#" method="post">
+
+        <fieldset>
+            <legend>Cancellation Details</legend>
+
+            <label for="bookingid">Booking ID:</label>
+            <input type="text" id="bookingid" name="bookingid" required>
+
+            <br><br>
+
+            <label for="reason">Cancellation Reason:</label>
+            <select id="reason" name="reason" required>
+                <option value="">Select Reason</option>
+                <option>Change of Plans</option>
+                <option>Wrong Booking</option>
+                <option>Personal Emergency</option>
+                <option>Other</option>
+            </select>
+
+            <br><br>
+
+            <label for="refund">Refund Method:</label>
+            <select id="refund" name="refund">
+                <option>bKash</option>
+                <option>Nagad</option>
+                <option>Bank Account</option>
+            </select>
+
+            <br><br>
+
+            <button type="submit">Submit Refund Request</button>
+        </fieldset>
+
+    </form>
+
+    <hr>
+
+    <h2 id="digital-ticket">Digital Ticket</h2>
+
+    <fieldset>
+        <legend>Ticket Information</legend>
+
+        <p>Booking ID: __________________</p>
+        <p>Customer Name: _______________</p>
+        <p>Movie Name: __________________</p>
+        <p>Show Date: ___________________</p>
+        <p>Show Time: ___________________</p>
+        <p>Seat Number: _________________</p>
+        <p>Ticket Price: _________________</p>
+
+        <h3>QR Code</h3>
+
+        <p>QR Code will be generated after successful booking.</p>
+
+    </fieldset>
+
+    <hr>
+
+    <footer>
+        <h3>Movie Theater</h3>
+        <p>Where Every Movie Experience Begins.</p>
+        <p>&copy; 2026 Movie Theater. All Rights Reserved.</p>
+    </footer>
+
+</body>
+
+</html>
