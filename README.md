@@ -1,1 +1,0 @@
-# fall-26-27-Movie-Ticket-Management-system

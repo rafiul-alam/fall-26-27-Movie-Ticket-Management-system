@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie & Theater Management</title>
+</head>
+<body>
+  <header>
+    <h1>Movie & Theater Management</h1>
+    <p>Movie Ticket Booking and Theater Rental Management System</p>
+    <nav>
+      <a href="index.html">Home</a> |
+      <a href="login.html">Login</a> |
+      <a href="register.html">Register</a>
+    </nav>
+  </header>
+  <hr>
+  <main>
+    <h2>Now Showing</h2>
+    <p>Explore movies, discover screenings and book your seats.</p>
+    <form action="index.html" method="get">
+      <label for="movie-search">Search movies:</label>
+      <input type="search" id="movie-search" name="q" placeholder="Movie title or genre">
+      <button type="submit">Search</button>
+    </form>
+    <table border="1" cellpadding="8">
+      <thead><tr><th>Movie</th><th>Genre</th><th>Duration</th><th>Language</th><th>Available Shows</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td>Inception</td><td>Sci-Fi / Thriller</td><td>148 min</td><td>English</td><td>2:30 PM, 6:00 PM</td><td><a href="login.html">Book Ticket</a></td></tr>
+        <tr><td>Interstellar</td><td>Sci-Fi / Drama</td><td>169 min</td><td>English</td><td>3:00 PM, 7:00 PM</td><td><a href="login.html">Book Ticket</a></td></tr>
+        <tr><td>Hawa</td><td>Drama / Mystery</td><td>130 min</td><td>Bangla</td><td>4:00 PM, 8:00 PM</td><td><a href="login.html">Book Ticket</a></td></tr>
+        <tr><td>Poran</td><td>Romance / Drama</td><td>140 min</td><td>Bangla</td><td>1:30 PM, 5:30 PM</td><td><a href="login.html">Book Ticket</a></td></tr>
+      </tbody>
+    </table>
+
+    <h2>How CineTicket Works</h2>
+    <ol>
+      <li>Create an account or log in.</li>
+      <li>Choose a movie, theater, showtime and seats.</li>
+      <li>Review your booking and receive your ticket information.</li>
+      <li>Present your ticket to an employee at the theater.</li>
+    </ol>
+
+    <h2>For Theater Renters</h2>
+    <p>Movie producers and distributors can submit movies and request theater screens for their screenings.</p>
+    <p><a href="register.html">Register as a Theater Renter</a></p>
+  </main>
+  <hr>
+  <footer><p>&copy; 2026 Movie & Theater Management.</p></footer>
+</body>
+</html>

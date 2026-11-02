@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theater Renter Dashboard</title>
+</head>
+<body>
+  <header>
+    <h1>Movie & Theater Management — Theater Renter Dashboard</h1>
+    <nav>
+      <a href="index.html">Home</a> |
+      <a href="renter.html">Dashboard</a> |
+      <a href="login.html">Logout</a>
+    </nav>
+  </header>
+  <hr>
+
+  <main>
+    <h2>Welcome, Theater Renter</h2>
+
+    <h2>1. Submit and Manage Movies</h2>
+    <p>Unique feature: submit movie information for admin review and track approval status.</p>
+
+    <form>
+      <label for="movie-search">Search my movies:</label>
+      <input id="movie-search" name="movie_query" type="search" placeholder="Movie title or status">
+      <button type="submit">Search</button>
+    </form>
+
+    <form>
+      <fieldset>
+        <legend>Submit / Update Movie</legend>
+
+        <label for="renter-movie-id">Movie ID (for updates):</label>
+        <input id="renter-movie-id" name="movie_id" type="text">
+
+        <label for="renter-movie-title">Movie title:</label>
+        <input id="renter-movie-title" name="title" type="text" required>
+
+        <label for="movie-genre">Genre:</label>
+        <input id="movie-genre" name="genre" type="text">
+
+        <label for="movie-duration">Duration (minutes):</label>
+        <input id="movie-duration" name="duration" type="number" min="1">
+
+        <label for="movie-language">Language:</label>
+        <input id="movie-language" name="language" type="text">
+
+        <label for="release-date">Release date:</label>
+        <input id="release-date" name="release_date" type="date">
+
+        <label for="synopsis">Synopsis:</label>
+        <textarea id="synopsis" name="synopsis" rows="4"></textarea>
+
+        <label for="movie-poster">Poster file:</label>
+        <input id="movie-poster" name="poster" type="file" accept="image/*">
+
+        <button type="submit">Submit Movie</button>
+        <button type="reset">Clear</button>
+      </fieldset>
+    </form>
+
+    <table border="1" cellpadding="6">
+      <tr>
+        <th>Movie ID</th>
+        <th>Title</th>
+        <th>Duration</th>
+        <th>Approval Status</th>
+        <th>Actions</th>
+      </tr>
+      <tr>
+        <td>M101</td>
+        <td>My Feature Film</td>
+        <td>120 min</td>
+        <td>Pending</td>
+        <td><a href="#edit-movie">Edit</a> | <a href="#delete-movie">Delete</a></td>
+      </tr>
+      <tr>
+        <td>M102</td>
+        <td>Short Film Project</td>
+        <td>35 min</td>
+        <td>Approved</td>
+        <td><a href="#edit-movie">Edit</a> | <a href="#delete-movie">Delete</a></td>
+      </tr>
+    </table>
+
+    <h2>2. Theater Rental Applications</h2>
+    <p>Unique feature: apply to rent a theater or screen for a specific date and time.</p>
+
+    <form>
+      <label for="rental-search">Search rental applications:</label>
+      <input id="rental-search" name="rental_query" type="search" placeholder="Application ID or theater">
+      <button type="submit">Search</button>
+    </form>
+
+    <form>
+      <fieldset>
+        <legend>New / Update Rental Application</legend>
+
+        <label for="application-id">Application ID:</label>
+        <input id="application-id" name="application_id" type="text">
+
+        <label for="rental-movie">Movie:</label>
+        <select id="rental-movie" name="movie">
+          <option>My Feature Film</option>
+          <option>Short Film Project</option>
+        </select>
+
+        <label for="rental-theater">Theater:</label>
+        <select id="rental-theater" name="theater">
+          <option>City Cinema</option>
+          <option>Star Cineplex</option>
+        </select>
+
+        <label for="rental-screen">Preferred screen:</label>
+        <input id="rental-screen" name="screen" type="text">
+
+        <label for="rental-date">Requested date:</label>
+        <input id="rental-date" name="date" type="date" required>
+
+        <label for="rental-start">Start time:</label>
+        <input id="rental-start" name="start_time" type="time" required>
+
+        <label for="rental-end">End time:</label>
+        <input id="rental-end" name="end_time" type="time" required>
+
+        <label for="expected-audience">Expected audience:</label>
+        <input id="expected-audience" name="audience" type="number" min="1">
+
+        <label for="rental-notes">Additional requirements:</label>
+        <textarea id="rental-notes" name="notes" rows="3"></textarea>
+
+        <button type="submit">Submit Application</button>
+        <button type="reset">Clear</button>
+      </fieldset>
+    </form>
+
+    <table border="1" cellpadding="6">
+      <tr>
+        <th>Application ID</th>
+        <th>Movie</th>
+        <th>Theater</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+      <tr>
+        <td>R001</td>
+        <td>My Feature Film</td>
+        <td>City Cinema</td>
+        <td>10-11-2026</td>
+        <td>Pending</td>
+        <td><a href="#edit-rental">Edit</a> | <a href="#delete-rental">Delete</a></td>
+      </tr>
+    </table>
+
+    <h2>3. Screening Schedule and Performance Reports</h2>
+    <p>Unique feature: track approved screenings, audience numbers and rental performance.</p>
+
+    <form>
+      <label for="screening-search">Search screenings:</label>
+      <input id="screening-search" name="screening_query" type="search">
+      <button type="submit">Search</button>
+    </form>
+
+    <form>
+      <fieldset>
+        <legend>Add / Update Screening</legend>
+
+        <label for="screening-id">Screening ID:</label>
+        <input id="screening-id" name="screening_id" type="text">
+
+        <label for="screening-movie">Movie title:</label>
+        <input id="screening-movie" name="movie" type="text" required>
+
+        <label for="screening-date">Date:</label>
+        <input id="screening-date" name="date" type="date">
+
+        <label for="screening-time">Time:</label>
+        <input id="screening-time" name="time" type="time">
+
+        <label for="screening-status">Status:</label>
+        <select id="screening-status" name="status">
+          <option>Scheduled</option>
+          <option>Completed</option>
+          <option>Cancelled</option>
+        </select>
+
+        <button type="submit">Save Screening</button>
+        <button type="reset">Clear</button>
+      </fieldset>
+    </form>
+
+    <table border="1" cellpadding="6">
+      <tr>
+        <th>Screening ID</th>
+        <th>Movie</th>
+        <th>Theater</th>
+        <th>Date</th>
+        <th>Tickets Sold</th>
+        <th>Actions</th>
+      </tr>
+      <tr>
+        <td>SC001</td>
+        <td>My Feature Film</td>
+        <td>City Cinema</td>
+        <td>10-11-2026</td>
+        <td>85</td>
+        <td><a href="#edit-screening">Edit</a> | <a href="#delete-screening">Delete</a></td>
+      </tr>
+    </table>
+
+    <h3>Rental Performance Summary</h3>
+
+    <table border="1" cellpadding="6">
+      <tr>
+        <th>Movie</th>
+        <th>Screenings</th>
+        <th>Tickets Sold</th>
+        <th>Gross Revenue</th>
+        <th>Rental Cost</th>
+      </tr>
+      <tr>
+        <td>My Feature Film</td>
+        <td>1</td>
+        <td>85</td>
+        <td>৳34,000</td>
+        <td>৳12,000</td>
+      </tr>
+    </table>
+  </main>
+</body>
+</html>

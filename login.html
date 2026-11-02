@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | </title>
+</head>
+<body>
+  <header>
+    <h1>Movie & Theater Management</h1>
+    <nav><a href="index.html">Home</a> | <a href="register.html">Create Account</a></nav>
+  </header>
+  <hr>
+  <main>
+    <h2>Login to Your Account</h2>
+    <p>Select your account role and enter your credentials.</p>
+    <form action="#" method="post">
+      <p><label for="role">Login as:</label>
+      <select id="role" name="role" required>
+        <option value="">-- Select role --</option>
+        <option value="admin">Admin</option>
+        <option value="buyer">Ticket Buyer</option>
+        <option value="employee">Employee</option>
+        <option value="renter">Theater Renter</option>
+      </select></p>
+      <p><label for="email">Email address:</label><br><input type="email" id="email" name="email" required></p>
+      <p><label for="password">Password:</label><br><input type="password" id="password" name="password" required></p>
+      <p><label><input type="checkbox" name="remember"> Remember me</label></p>
+      <button type="submit">Login</button>
+      <button type="reset">Clear</button>
+    </form>
+    <p>Don't have an account? <a href="register.html">Sign up here</a>.</p>
+  </main>
+</body>
+</html>
