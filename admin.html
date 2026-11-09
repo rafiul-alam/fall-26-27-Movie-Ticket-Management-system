@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Movie Ticket Management System - Admin</title>
+</head>
+
+<body>
+    <h1>Admin Panel</h1>
+    <p>Welcome Admin. From here you can manage users, see revenue and set up theatres.</p>
+    <a href="#users">User Accounts</a>
+    <a href="#analytics">Revenue and Analytics</a>
+    <a href="#theatres">Theatres and Screens</a>
+    <hr>
+
+    <!-- 1. USER ACCOUNT APPROVAL AND SUSPENSION -->
+    <h2 id="users">1. User Account Approval and Suspension</h2>
+    <form action="" method="post">
+        <label for="search">Search user:</label>
+        <input type="text" name="search" id="search">
+        <br><br>
+        <label for="status">Filter by status:</label>
+        <select name="status" id="status">
+            <option value="all">All</option>
+            <option value="pending">Pending</option>
+            <option value="active">Active</option>
+            <option value="suspended">Suspended</option>
+        </select>
+        <br><br>
+        <input type="submit" value="Search">
+    </form>
+    <br>
+
+    <table border="1" cellpadding="8">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td>101</td>
+            <td>Raj</td>
+            <td>raj@mail.com</td>
+            <td>Pending</td>
+            <td>
+                <button>Approve</button>
+                <button>Reject</button>
+            </td>
+        </tr>
+        <tr>
+            <td>102</td>
+            <td>Musfik</td>
+            <td>musfik@mail.com</td>
+            <td>Active</td>
+            <td><button>Suspend</button></td>
+        </tr>
+        <tr>
+            <td>103</td>
+            <td>Sakib</td>
+            <td>sakib@mail.com</td>
+            <td>Suspended</td>
+            <td><button>Reactivate</button></td>
+        </tr>
+        <tr>
+            <td>104</td>
+            <td>Mahmud</td>
+            <td>mahmud@mail.com</td>
+            <td>Pending</td>
+            <td>
+                <button>Approve</button>
+                <button>Reject</button>
+            </td>
+        </tr>
+        <tr>
+            <td>105</td>
+            <td>Yeasin</td>
+            <td>yeasin@mail.com</td>
+            <td>Active</td>
+            <td><button>Suspend</button></td>
+        </tr>
+    </table>
+    <hr>
+
+    <!-- 2. REVENUE AND PLATFORM ANALYTICS -->
+    <h2 id="analytics">2. Revenue and Platform Analytics</h2>
+    <form action="" method="post">
+        <label for="period">Choose period:</label>
+        <select name="period" id="period">
+            <option value="7">Last 7 days</option>
+            <option value="30">This month</option>
+            <option value="90">Last 3 months</option>
+        </select>
+        <input type="submit" value="Show">
+    </form>
+    <br>
+
+    <table border="1" cellpadding="8">
+        <tr>
+            <th>Total Revenue</th>
+            <th>Tickets Sold</th>
+            <th>Total Users</th>
+        </tr>
+        <tr>
+            <td>Tk. 4,82,000</td>
+            <td>12,480</td>
+            <td>1,283</td>
+        </tr>
+    </table>
+    <br>
+
+    <table border="1" cellpadding="8">
+        <tr>
+            <th>Movie</th>
+            <th>Tickets Sold</th>
+            <th>Revenue</th>
+        </tr>
+        <tr>
+            <td>Meghla Raat</td>
+            <td>4,100</td>
+            <td>Tk. 1,64,000</td>
+        </tr>
+        <tr>
+            <td>Shonar Char</td>
+            <td>3,050</td>
+            <td>Tk. 1,22,000</td>
+        </tr>
+        <tr>
+            <td>Nodir Opare</td>
+            <td>2,400</td>
+            <td>Tk. 96,000</td>
+        </tr>
+    </table>
+    <hr>
+
+    <!-- 3. THEATRE AND SCREEN CONFIGURATION -->
+    <h2 id="theatres">3. Theatre and Screen Configuration</h2>
+    <form action="" method="post">
+        <fieldset>
+            <legend>Add Theatre</legend>
+            <label for="theatre_name">Theatre Name:</label>
+            <input type="text" name="theatre_name" id="theatre_name">
+            <br><br>
+            <label for="city">City:</label>
+            <input type="text" name="city" id="city">
+            <br><br>
+            <input type="submit" value="Add Theatre">
+        </fieldset>
+    </form>
+    <br>
+
+    <form action="" method="post">
+        <fieldset>
+            <legend>Add Screen</legend>
+            <label for="theatre">Theatre:</label>
+            <select name="theatre" id="theatre">
+                <option value="1">Star Cineplex, Dhaka</option>
+                <option value="2">Blockbuster Cinemas, Dhaka</option>
+                <option value="3">Cineplex, Chattogram</option>
+            </select>
+            <br><br>
+            <label for="screen_name">Screen Name:</label>
+            <input type="text" name="screen_name" id="screen_name">
+            <br><br>
+            <label for="rows">Number of Rows:</label>
+            <input type="number" name="rows" id="rows">
+            <br><br>
+            <label for="seats">Seats per Row:</label>
+            <input type="number" name="seats" id="seats">
+            <br><br>
+            <label>Screen Type:</label>
+            <input type="radio" name="screen_type" value="standard">Standard
+            <input type="radio" name="screen_type" value="imax">IMAX
+            <input type="radio" name="screen_type" value="3d">3D
+            <br><br>
+            <label>Facilities:</label>
+            <input type="checkbox" name="facility" value="dolby">Dolby Sound
+            <input type="checkbox" name="facility" value="recliner">Recliner Seats
+            <br><br>
+            <input type="reset" value="Reset">
+            <input type="submit" value="Add Screen">
+        </fieldset>
+    </form>
+    <br>
+
+    <table border="1" cellpadding="8">
+        <tr>
+            <th>Theatre</th>
+            <th>Screen</th>
+            <th>Type</th>
+            <th>Total Seats</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td>Star Cineplex, Dhaka</td>
+            <td>Screen 1</td>
+            <td>Standard</td>
+            <td>96</td>
+            <td>
+                <button>Edit</button>
+                <button>Remove</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Blockbuster Cinemas, Dhaka</td>
+            <td>Screen 1</td>
+            <td>IMAX</td>
+            <td>140</td>
+            <td>
+                <button>Edit</button>
+                <button>Remove</button>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
