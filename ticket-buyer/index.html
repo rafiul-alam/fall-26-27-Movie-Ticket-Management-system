@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Movie Theater Ticket Buyer Dashboard">
+    <title>Ticket Buyer Dashboard | Movie Theater</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header class="header">
+        <a href="index.html" class="logo">Movie<span>Theater</span></a>
+        <div class="user-info">
+            <span id="buyerWelcome">Welcome, Ticket Buyer</span>
+            <a href="#profile" class="btn btn-small">My Profile</a>
+            <a href="#logout" class="btn btn-small btn-light">Logout</a>
+        </div>
+    </header>
+
+    <!-- Navigation Section -->
+    <nav class="topnav">
+        <a href="#dashboard" class="active">Dashboard</a>
+        <a href="#booking">Book Ticket</a>
+        <a href="#my-bookings">My Bookings</a>
+        <a href="#booking-history">Booking History</a>
+        <a href="#cancellation">Cancellation & Refund</a>
+        <a href="#digital-ticket">Digital Ticket</a>
+        <a href="#profile">My Profile</a>
+    </nav>
+
+    <main class="container">
+
+        <!-- Dashboard Overview -->
+        <section id="dashboard" class="home-section">
+            <div class="section-heading">
+                <h1>Ticket Buyer Dashboard</h1>
+                <p>Book your favourite movies, choose your seats and manage your tickets.</p>
+            </div>
+
+            <div class="feature-strip">
+                <div class="feature">
+                    <span class="feature-icon">01</span>
+                    <h3>Easy Booking</h3>
+                    <p>Choose a movie, showtime and your preferred seats.</p>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">02</span>
+                    <h3>Secure Payment</h3>
+                    <p>Select an available payment method for your booking.</p>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">03</span>
+                    <h3>Digital Ticket</h3>
+                    <p>View your ticket details after a successful booking.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Movie Ticket Booking -->
+        <section id="booking" class="home-section">
+            <div class="section-heading">
+                <h2>Book Your Movie Ticket</h2>
+                <p>Complete the form below to create a ticket booking.</p>
+            </div>
+
+            <form id="bookingForm" action="#" method="get">
+
+                <fieldset>
+                    <legend>Movie Details</legend>
+
+                    <label for="movie">Choose Movie:</label>
+                    <select id="movie" name="movie" required>
+                        <option value="">Select a Movie</option>
+                        <option value="Avengers">Avengers</option>
+                        <option value="Interstellar">Interstellar</option>
+                        <option value="Inception">Inception</option>
+                        <option value="Titanic">Titanic</option>
+                    </select>
+                    <p class="error" id="movieError"></p>
+
+                    <label for="date">Show Date:</label>
+                    <input type="date" id="date" name="date" required>
+                    <p class="error" id="dateError"></p>
+
+                    <label for="time">Show Time:</label>
+                    <select id="time" name="time" required>
+                        <option value="">Select Time</option>
+                        <option value="10:00 AM">10:00 AM</option>
+                        <option value="01:00 PM">01:00 PM</option>
+                        <option value="04:00 PM">04:00 PM</option>
+                        <option value="07:00 PM">07:00 PM</option>
+                        <option value="09:00 PM">09:00 PM</option>
+                    </select>
+                    <p class="error" id="timeError"></p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Ticket Details & Seat Selection</legend>
+
+                    <label for="quantity">Number of Tickets:</label>
+                    <input type="number" id="quantity" name="quantity" min="1" max="10" required>
+                    <p class="error" id="quantityError"></p>
+
+                    <label for="category">Seat Category:</label>
+                    <select id="category" name="category" required>
+                        <option value="">Select Seat Category</option>
+                        <option value="Regular">Regular</option>
+                        <option value="Premium">Premium</option>
+                        <option value="VIP">VIP</option>
+                    </select>
+                    <p class="error" id="categoryError"></p>
+
+                    <h3>Choose Your Seats</h3>
+                    <p class="screen">SCREEN THIS WAY</p>
+
+                    <h4>Row A</h4>
+                    <input type="checkbox" id="seatA1" name="seat[]" value="A1">
+                    <label for="seatA1">A1</label>
+                    <input type="checkbox" id="seatA2" name="seat[]" value="A2">
+                    <label for="seatA2">A2</label>
+                    <input type="checkbox" id="seatA3" name="seat[]" value="A3">
+                    <label for="seatA3">A3</label>
+                    <input type="checkbox" id="seatA4" name="seat[]" value="A4">
+                    <label for="seatA4">A4</label>
+
+                    <h4>Row B</h4>
+                    <input type="checkbox" id="seatB1" name="seat[]" value="B1">
+                    <label for="seatB1">B1</label>
+                    <input type="checkbox" id="seatB2" name="seat[]" value="B2">
+                    <label for="seatB2">B2</label>
+                    <input type="checkbox" id="seatB3" name="seat[]" value="B3">
+                    <label for="seatB3">B3</label>
+                    <input type="checkbox" id="seatB4" name="seat[]" value="B4">
+                    <label for="seatB4">B4</label>
+
+                    <h4>Row C</h4>
+                    <input type="checkbox" id="seatC1" name="seat[]" value="C1">
+                    <label for="seatC1">C1</label>
+                    <input type="checkbox" id="seatC2" name="seat[]" value="C2">
+                    <label for="seatC2">C2</label>
+                    <input type="checkbox" id="seatC3" name="seat[]" value="C3">
+                    <label for="seatC3">C3</label>
+                    <input type="checkbox" id="seatC4" name="seat[]" value="C4">
+                    <label for="seatC4">C4</label>
+
+                    <p class="error" id="seatError"></p>
+                    <p id="priceSummary">Ticket price will be shown here.</p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Buyer Information</legend>
+
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                    <p class="error" id="nameError"></p>
+
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    <p class="error" id="emailError"></p>
+
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                    <p class="error" id="phoneError"></p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Payment Method</legend>
+
+                    <input type="radio" id="bkash" name="payment" value="bKash" required>
+                    <label for="bkash">bKash</label>
+
+                    <input type="radio" id="nagad" name="payment" value="Nagad">
+                    <label for="nagad">Nagad</label>
+
+                    <input type="radio" id="card" name="payment" value="Card">
+                    <label for="card">Card</label>
+                    <p class="error" id="paymentError"></p>
+                </fieldset>
+
+                <button type="submit">Book Ticket</button>
+                <button type="reset">Clear Form</button>
+            </form>
+        </section>
+
+        <!-- My Bookings -->
+        <section id="my-bookings" class="home-section">
+            <div class="section-heading">
+                <h2>My Bookings</h2>
+                <p>View, search, update or cancel your ticket bookings.</p>
+            </div>
+
+            <div class="card">
+                <label for="bookingSearch">Search Booking:</label>
+                <input type="text" id="bookingSearch" placeholder="Search by booking ID or movie name">
+
+                <div class="table-wrapper">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Booking ID</th>
+                                <th>Movie</th>
+                                <th>Show Date</th>
+                                <th>Show Time</th>
+                                <th>Seats</th>
+                                <th>Total Price</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bookingTableBody">
+                            <tr>
+                                <td colspan="8">No bookings available yet.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking History -->
+        <section id="booking-history" class="home-section">
+            <div class="section-heading">
+                <h2>Booking History</h2>
+                <p>Review your previous and cancelled bookings.</p>
+            </div>
+
+            <div class="card">
+                <div class="table-wrapper">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Booking ID</th>
+                                <th>Movie</th>
+                                <th>Booking Date</th>
+                                <th>Seat Number</th>
+                                <th>Amount</th>
+                                <th>Booking Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="historyTableBody">
+                            <tr>
+                                <td colspan="6">No booking history available.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cancellation and Refund -->
+        <section id="cancellation" class="home-section">
+            <div class="section-heading">
+                <h2>Ticket Cancellation & Refund Request</h2>
+                <p>Submit a cancellation request for an existing booking.</p>
+            </div>
+
+            <form id="cancellationForm" action="#" method="get">
+                <fieldset>
+                    <legend>Cancellation Details</legend>
+
+                    <label for="bookingid">Booking ID:</label>
+                    <input type="text" id="bookingid" name="bookingid" required>
+                    <p class="error" id="bookingIdError"></p>
+
+                    <label for="reason">Cancellation Reason:</label>
+                    <select id="reason" name="reason" required>
+                        <option value="">Select Reason</option>
+                        <option value="Change of Plans">Change of Plans</option>
+                        <option value="Wrong Booking">Wrong Booking</option>
+                        <option value="Personal Emergency">Personal Emergency</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <p class="error" id="reasonError"></p>
+
+                    <label for="refund">Refund Method:</label>
+                    <select id="refund" name="refund" required>
+                        <option value="">Select Refund Method</option>
+                        <option value="bKash">bKash</option>
+                        <option value="Nagad">Nagad</option>
+                        <option value="Bank Account">Bank Account</option>
+                    </select>
+
+                    <button type="submit">Submit Refund Request</button>
+                </fieldset>
+            </form>
+        </section>
+
+        <!-- Digital Ticket -->
+        <section id="digital-ticket" class="home-section">
+            <div class="section-heading">
+                <h2>Digital Ticket</h2>
+                <p>Your ticket information will appear here after booking.</p>
+            </div>
+
+            <fieldset>
+                <legend>Ticket Information</legend>
+
+                <p>Booking ID: <span id="ticketBookingId">__________________</span></p>
+                <p>Customer Name: <span id="ticketCustomerName">__________________</span></p>
+                <p>Movie Name: <span id="ticketMovieName">__________________</span></p>
+                <p>Show Date: <span id="ticketShowDate">__________________</span></p>
+                <p>Show Time: <span id="ticketShowTime">__________________</span></p>
+                <p>Seat Number: <span id="ticketSeatNumber">__________________</span></p>
+                <p>Ticket Price: <span id="ticketPrice">__________________</span></p>
+
+                <h3>QR Code</h3>
+                <div id="qrCodeArea">
+                    <p>QR Code will be displayed after a successful booking.</p>
+                </div>
+            </fieldset>
+        </section>
+
+        <!-- My Profile -->
+        <section id="profile" class="home-section">
+            <div class="section-heading">
+                <h2>My Profile</h2>
+                <p>View and update your buyer information.</p>
+            </div>
+
+            <form id="profileForm" action="#" method="get">
+                <fieldset>
+                    <legend>Buyer Profile Information</legend>
+
+                    <label for="profileName">Full Name:</label>
+                    <input type="text" id="profileName" name="profileName" placeholder="Enter your full name" required>
+                    <p class="error" id="profileNameError"></p>
+
+                    <label for="profileEmail">Email Address:</label>
+                    <input type="email" id="profileEmail" name="profileEmail" placeholder="Enter your email" required>
+                    <p class="error" id="profileEmailError"></p>
+
+                    <label for="profilePhone">Phone Number:</label>
+                    <input type="tel" id="profilePhone" name="profilePhone" placeholder="Enter your phone number"
+                        required>
+                    <p class="error" id="profilePhoneError"></p>
+
+                    <button type="submit">Update Profile</button>
+                    <button type="reset">Clear Form</button>
+                </fieldset>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <h3>Movie Theater</h3>
+        <p>Where Every Movie Experience Begins.</p>
+        <p>&copy; 2026 Movie Theater. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="js/data.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/buyer.js"></script>
+</body>
+
+</html>
