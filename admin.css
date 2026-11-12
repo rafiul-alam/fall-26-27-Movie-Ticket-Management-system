@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    color: gray;
+    margin: 20px;
+}
+
+h1 {
+    background-color: black;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+h2 {
+    color: #14213d;
+    border-bottom: 3px solid orange;
+    padding-bottom: 5px;
+}
+
+a {
+    color: maroon;
+    font-weight: bold;
+    margin-right: 15px;
+    text-decoration: none;
+}
+
+a:hover {
+    color: orange;
+    text-decoration: underline;
+}
+
+hr {
+    margin: 30px 0;
+}
+
+table {
+    background-color: white;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    background-color: black ;
+    color: white;
+    text-align: left;
+}
+
+td, th {
+    border: 1px white solid;
+    padding: 10px;
+}
+
+tr:hover {
+    background-color: white ;
+}
+
+fieldset {
+    background-color: white;
+    border: 2px solid gray;
+    padding: 15px;
+    width: 400px;
+}
+
+legend {
+    font-weight: bold;
+    color: pink ;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    padding: 6px;
+    border: 1px  gray;
+    border-radius: 4px;
+}
+
+button,
+input[type="submit"],
+input[type="reset"] {
+    background-color: gray  ;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    background-color: orange;
+    color: black;
+}
