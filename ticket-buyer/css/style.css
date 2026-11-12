@@ -1,1 +1,2551 @@
-/* Ticket Buyer styles will be added in the CSS phase. */
+/* ==========================================================
+   MovieTheater – Premium Cinema UI (CSS only, matches mockup)
+   Save as: css/style.css
+   ========================================================== */
+/* Pure HTML + CSS + JS project: system fonts only, no external links */
+
+:root {
+    --navy-950: #030a1c;
+    --navy-900: #061330;
+    --navy-800: #0a1d4a;
+    --navy-700: #102a6b;
+    --blue: #2f6bff;
+    --gold-300: #ffe08a;
+    --gold-400: #f7c948;
+    --gold-600: #c98f12;
+    --ink: #0b1533;
+    --ink-soft: #4a5578;
+    --ink-mute: #8a93b2;
+    --glass: linear-gradient(145deg, #fff 0%, #eef2ff 55%, #d9e3ff 100%);
+    --danger: #ff5d6c;
+    --shadow: 0 18px 40px rgba(0, 0, 0, .45);
+    --ease: cubic-bezier(.22, .8, .24, 1);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+body {
+    font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+    line-height: 1.6;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+    background:
+        radial-gradient(800px 420px at 50% 62%, rgba(47, 107, 255, .26), transparent 70%),
+        radial-gradient(600px 400px at 100% 25%, rgba(16, 42, 107, .6), transparent 70%),
+        linear-gradient(180deg, var(--navy-950), var(--navy-900) 45%, #050e26);
+    background-attachment: fixed;
+}
+
+::selection {
+    background: var(--gold-400);
+    color: var(--navy-950);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--navy-950);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(var(--gold-400), var(--gold-600));
+    border-radius: 10px;
+    border: 2px solid var(--navy-950);
+}
+
+/* ---------- Header ---------- */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 5vw;
+    background: linear-gradient(180deg, #020816, var(--navy-900));
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.7rem;
+    font-weight: 800;
+    letter-spacing: -.5px;
+}
+
+.logo::before {
+    content: "🎞️";
+    margin-right: 4px;
+    filter: drop-shadow(0 0 8px rgba(247, 201, 72, .7));
+}
+
+.logo span {
+    color: var(--gold-400);
+    text-shadow: 0 0 18px rgba(247, 201, 72, .45);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-size: .9rem;
+    font-weight: 700;
+}
+
+/* ---------- Buttons ---------- */
+.btn,
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: 0;
+    transition: transform .25s var(--ease), box-shadow .25s var(--ease), background .25s, color .25s, border-color .25s;
+}
+
+.btn {
+    display: inline-flex;
+    padding: 9px 18px;
+    font-size: .85rem;
+    font-weight: 700;
+    color: #fff;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #3d7bff, #1f4fd6);
+    box-shadow: 0 6px 18px rgba(47, 107, 255, .5), inset 0 1px 0 rgba(255, 255, 255, .3);
+}
+
+.btn-light {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, .8);
+    box-shadow: none;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 28px rgba(47, 107, 255, .6);
+}
+
+.btn-light:hover {
+    background: #fff;
+    color: var(--navy-900);
+}
+
+button[type="submit"],
+button[type="reset"] {
+    padding: 13px 32px;
+    font-size: .95rem;
+    font-weight: 800;
+    border-radius: 14px;
+}
+
+button[type="submit"] {
+    color: var(--navy-950);
+    background: linear-gradient(135deg, var(--gold-300), var(--gold-400) 45%, var(--gold-600));
+    box-shadow: 0 10px 26px rgba(247, 201, 72, .35), inset 0 1px 0 rgba(255, 255, 255, .6);
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(247, 201, 72, .55);
+}
+
+button[type="reset"] {
+    color: var(--navy-800);
+    background: transparent;
+    border: 1.5px solid #aebbe8;
+}
+
+button[type="reset"]:hover {
+    color: #fff;
+    background: var(--navy-800);
+    border-color: var(--navy-800);
+    transform: translateY(-3px);
+}
+
+form>button[type="reset"] {
+    color: #fff;
+    border-color: rgba(255, 255, 255, .4);
+}
+
+form>button[type="reset"]:hover {
+    color: var(--gold-400);
+    background: transparent;
+    border-color: var(--gold-400);
+}
+
+button:active,
+.btn:active {
+    transform: scale(.97);
+}
+
+:focus-visible {
+    outline: 3px solid rgba(247, 201, 72, .7);
+    outline-offset: 3px;
+}
+
+/* ---------- Nav ---------- */
+.topnav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    padding: 0 3vw;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    background: rgba(6, 19, 48, .88);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255, 255, 255, .06);
+}
+
+.topnav::-webkit-scrollbar {
+    display: none;
+}
+
+.topnav a {
+    position: relative;
+    padding: 15px 16px;
+    font-size: .84rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, .85);
+    transition: color .25s;
+}
+
+.topnav a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    border-radius: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold-400), transparent);
+    transform: translateX(-50%);
+    transition: width .3s var(--ease);
+}
+
+.topnav a:hover,
+.topnav a.active {
+    color: #fff;
+}
+
+.topnav a:hover::after,
+.topnav a.active::after {
+    width: 90%;
+}
+
+/* ---------- Layout & headings ---------- */
+.container {
+    width: min(1180px, 92%);
+    margin: 0 auto;
+    padding: 30px 0 60px;
+}
+
+.home-section {
+    margin-bottom: 56px;
+    animation: up .7s var(--ease) both;
+}
+
+@keyframes up {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+}
+
+.section-heading {
+    margin-bottom: 24px;
+}
+
+.section-heading h2 {
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+    font-weight: 800;
+    letter-spacing: -.5px;
+}
+
+.section-heading p {
+    margin-top: 6px;
+    color: rgba(255, 255, 255, .88);
+}
+
+.section-heading::after {
+    content: "";
+    display: block;
+    width: 52px;
+    height: 3px;
+    margin-top: 14px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--gold-400), var(--gold-600));
+    box-shadow: 0 0 14px rgba(247, 201, 72, .6);
+}
+
+#booking h2::before {
+    content: "🎬 ";
+}
+
+#my-bookings h2::before {
+    content: "🎟️ ";
+}
+
+#booking-history h2::before {
+    content: "🕘 ";
+}
+
+#cancellation h2::before {
+    content: "↩️ ";
+}
+
+#digital-ticket h2::before {
+    content: "📱 ";
+}
+
+#profile h2::before {
+    content: "👤 ";
+}
+
+/* ---------- Hero (curtains + gold "Dashboard" + cinema props) ---------- */
+#dashboard .section-heading {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    margin-bottom: 0;
+    padding: clamp(34px, 5vw, 60px) clamp(24px, 6vw, 80px);
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 26px;
+    box-shadow: var(--shadow);
+    background:
+        radial-gradient(420px 240px at 82% 50%, rgba(247, 201, 72, .22), transparent 70%),
+        radial-gradient(600px 300px at 0 100%, rgba(47, 107, 255, .25), transparent 70%),
+        linear-gradient(135deg, #040d26, #0a1d4a 60%, #071636);
+}
+
+#dashboard .section-heading::before {
+    /* red stage curtains */
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        repeating-linear-gradient(90deg, rgba(0, 0, 0, .25) 0 6px, transparent 6px 14px) left / 9% 100% no-repeat,
+        repeating-linear-gradient(90deg, rgba(0, 0, 0, .25) 0 6px, transparent 6px 14px) right / 9% 100% no-repeat,
+        linear-gradient(90deg, #a30f22, #6d0a17 5%, transparent 11%),
+        linear-gradient(270deg, #a30f22, #6d0a17 5%, transparent 11%);
+}
+
+#dashboard .section-heading::after {
+    /* cinema props */
+    content: "🎞️🍿🎟️";
+    position: absolute;
+    right: 7%;
+    top: 50%;
+    width: auto;
+    height: auto;
+    margin: 0;
+    font-size: clamp(2.4rem, 6vw, 4.6rem);
+    letter-spacing: -.1em;
+    white-space: nowrap;
+    background: none;
+    box-shadow: none;
+    transform: translateY(-50%);
+    filter: drop-shadow(0 0 28px rgba(247, 201, 72, .6));
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    50% {
+        transform: translateY(-58%);
+    }
+}
+
+#dashboard .section-heading h1 {
+    display: inline-block;
+    font-size: clamp(2rem, 5vw, 3.6rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    white-space: nowrap;
+    background: linear-gradient(90deg, #fff 0 53%, var(--gold-300) 54%, var(--gold-400));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* "Dashboard" gold: adjust 53%/54% if needed */
+}
+
+#dashboard .section-heading p {
+    display: block;
+    max-width: 520px;
+    margin-top: 12px;
+}
+
+/* ---------- Feature cards ---------- */
+.feature-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+    margin-top: 26px;
+}
+
+.feature {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 16px;
+    align-items: center;
+    padding: 22px 24px;
+    color: var(--ink);
+    background: var(--glass);
+    border-radius: 18px;
+    box-shadow: var(--shadow), inset 0 -3px 0 rgba(247, 201, 72, .8);
+    transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+}
+
+.feature:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 26px 50px rgba(0, 0, 0, .5), 0 0 28px rgba(247, 201, 72, .35), inset 0 -3px 0 var(--gold-400);
+}
+
+.feature-icon {
+    grid-row: span 2;
+    display: grid;
+    place-items: center;
+    width: 58px;
+    height: 58px;
+    font-size: 0;
+    border-radius: 16px;
+    background: linear-gradient(145deg, var(--navy-700), var(--navy-950));
+    box-shadow: 0 8px 18px rgba(10, 29, 74, .55), inset 0 1px 0 rgba(255, 255, 255, .2);
+}
+
+.feature-icon::before {
+    font-size: 1.6rem;
+    filter: drop-shadow(0 0 8px rgba(247, 201, 72, .6));
+}
+
+.feature:nth-child(1) .feature-icon::before {
+    content: "🎟️";
+}
+
+.feature:nth-child(2) .feature-icon::before {
+    content: "🛡️";
+}
+
+.feature:nth-child(3) .feature-icon::before {
+    content: "📱";
+}
+
+.feature h3 {
+    font-size: 1.15rem;
+    font-weight: 800;
+}
+
+.feature p {
+    font-size: .88rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+}
+
+/* ==========================================================
+   FORMS – fields sit in ONE row like the mockup
+   ========================================================== */
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px 12px;
+}
+
+fieldset {
+    position: relative;
+    flex: 1 1 100%;
+    min-width: 0;
+    margin-top: 12px;
+    display: grid;
+    grid-template-columns: repeat(6, auto) 1fr;
+    align-items: center;
+    gap: 18px 12px;
+    padding: 36px clamp(18px, 3vw, 34px) 30px;
+    color: var(--ink);
+    background: var(--glass);
+    border: 1px solid rgba(255, 255, 255, .95);
+    border-radius: 24px;
+    box-shadow: var(--shadow), 0 0 0 1px rgba(47, 107, 255, .35), 0 0 36px rgba(47, 107, 255, .3);
+}
+
+fieldset::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 40px;
+    right: 24px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold-400), rgba(247, 201, 72, .15));
+}
+
+legend {
+    position: relative;
+    z-index: 2;
+    margin-left: 18px;
+    padding: 9px 26px;
+    font-size: .95rem;
+    font-weight: 800;
+    color: #fff;
+    background: linear-gradient(145deg, var(--navy-700), var(--navy-950));
+    border: 1.5px solid var(--gold-400);
+    border-radius: 14px;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, .45), 0 0 16px rgba(247, 201, 72, .3);
+}
+
+fieldset:has(input[type="checkbox"], input[type="radio"]) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px 12px;
+}
+
+fieldset:has(input[type="checkbox"], input[type="radio"])> :is(input:not([type="checkbox"], [type="radio"]), select) {
+    flex: 0 1 200px;
+    width: auto;
+}
+
+fieldset:not(:has(input[type="checkbox"], input[type="radio"]))>label~label {
+    padding-left: 22px;
+}
+
+label {
+    font-size: .9rem;
+    font-weight: 700;
+    white-space: nowrap;
+    color: var(--ink);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="date"],
+select {
+    width: 100%;
+    min-width: 150px;
+    padding: 12px 16px;
+    font: 500 .92rem "Segoe UI", system-ui, Arial, sans-serif;
+    color: var(--ink);
+    background: #fff;
+    border: 1.5px solid #e1e6f7;
+    border-radius: 14px;
+    box-shadow: 0 5px 14px rgba(10, 29, 74, .1);
+    transition: border-color .25s, box-shadow .25s, transform .25s var(--ease);
+}
+
+select {
+    appearance: none;
+    cursor: pointer;
+    padding-right: 42px;
+    background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%230b1533' stroke-width='3' stroke-linecap='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") no-repeat right 16px center;
+}
+
+input::placeholder {
+    color: var(--ink-mute);
+    font-weight: 400;
+}
+
+input:hover,
+select:hover {
+    border-color: #5b8cff;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--blue);
+    box-shadow: 0 0 0 4px rgba(47, 107, 255, .18);
+    transform: translateY(-1px);
+}
+
+.error {
+    grid-column: 1 / -1;
+    flex: 0 0 100%;
+    font-size: .8rem;
+    font-weight: 600;
+    color: var(--danger);
+}
+
+.error:empty {
+    display: none;
+}
+
+.error:not(:empty)::before {
+    content: "⚠ ";
+}
+
+fieldset>button[type="submit"] {
+    grid-column: 1 / 3;
+    justify-self: start;
+}
+
+fieldset>button[type="reset"] {
+    grid-column: 3 / 5;
+    justify-self: start;
+}
+
+/* ---------- Seats & payment ---------- */
+fieldset h3 {
+    flex: 0 0 100%;
+    margin-top: 10px;
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.screen-label {
+    flex: 0 0 100%;
+    padding: 10px;
+    text-align: center;
+    font-size: .7rem;
+    font-weight: 800;
+    letter-spacing: 7px;
+    color: var(--ink-soft);
+    background: linear-gradient(180deg, rgba(47, 107, 255, .28), transparent);
+    border-top: 4px solid var(--blue);
+    border-radius: 50% 50% 0 0 / 22px 22px 0 0;
+    box-shadow: 0 -10px 24px rgba(47, 107, 255, .28);
+}
+
+fieldset h4 {
+    flex: 0 0 100%;
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+input[type="checkbox"]+label,
+input[type="radio"]+label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 0 !important;
+    cursor: pointer;
+    user-select: none;
+    transition: all .25s var(--ease);
+}
+
+input[name="seat[]"]+label {
+    width: 54px;
+    height: 46px;
+    font-size: .85rem;
+    color: var(--navy-800);
+    background: linear-gradient(180deg, #fff, #e4eaff);
+    border: 1.5px solid #c6d0f2;
+    border-radius: 12px 12px 8px 8px;
+    box-shadow: 0 5px 0 #b3bfe8, 0 8px 14px rgba(10, 29, 74, .15);
+}
+
+input[name="seat[]"]+label:hover {
+    transform: translateY(-3px);
+    border-color: var(--blue);
+}
+
+input[name="seat[]"]:checked+label {
+    color: #fff;
+    background: linear-gradient(180deg, #5b8cff, #1f4fd6);
+    border-color: #1f4fd6;
+    box-shadow: 0 5px 0 #153aa8, 0 0 22px rgba(47, 107, 255, .75);
+    transform: translateY(2px);
+}
+
+input[name="seat[]"]:disabled+label {
+    opacity: .4;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+input[name="payment"]+label {
+    padding: 13px 32px !important;
+    color: var(--navy-800);
+    background: #fff;
+    border: 1.5px solid #d6dcf2;
+    border-radius: 999px;
+    box-shadow: 0 6px 14px rgba(10, 29, 74, .1);
+}
+
+input[name="payment"]+label:hover {
+    border-color: var(--blue);
+    transform: translateY(-2px);
+}
+
+input[name="payment"]:checked+label {
+    color: #fff;
+    background: linear-gradient(135deg, var(--blue), var(--navy-700));
+    border-color: var(--gold-400);
+    box-shadow: 0 0 0 3px rgba(247, 201, 72, .45), 0 10px 22px rgba(47, 107, 255, .4);
+}
+
+input[name="payment"]:checked+label::before {
+    content: "✓";
+    margin-right: 8px;
+    color: var(--gold-300);
+}
+
+input:focus-visible+label {
+    outline: 3px solid var(--gold-400);
+    outline-offset: 3px;
+}
+
+#priceSummary {
+    flex: 0 0 100%;
+    padding: 14px 20px;
+    font-weight: 700;
+    color: var(--navy-900);
+    background: linear-gradient(135deg, rgba(247, 201, 72, .22), rgba(247, 201, 72, .06));
+    border: 1px dashed var(--gold-600);
+    border-radius: 14px;
+}
+
+#priceSummary::before {
+    content: "💰 ";
+}
+
+/* ---------- Card & table ---------- */
+.card {
+    display: grid;
+    gap: 16px;
+    padding: 28px clamp(16px, 3vw, 32px);
+    color: var(--ink);
+    background: var(--glass);
+    border-radius: 24px;
+    box-shadow: var(--shadow), 0 0 36px rgba(47, 107, 255, .25);
+}
+
+.card>input[type="text"] {
+    max-width: 460px;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    background: #fff;
+    border: 1px solid #d6dcf2;
+    border-radius: 16px;
+}
+
+.data-table {
+    width: 100%;
+    min-width: 720px;
+    border-collapse: collapse;
+    font-size: .9rem;
+}
+
+.data-table th {
+    padding: 15px 18px;
+    text-align: left;
+    font-size: .76rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: var(--gold-300);
+    background: linear-gradient(135deg, var(--navy-800), var(--navy-950));
+}
+
+.data-table td {
+    padding: 15px 18px;
+    border-bottom: 1px solid #e6eaf8;
+}
+
+.data-table tbody tr:nth-child(even) {
+    background: #f6f8ff;
+}
+
+.data-table tbody tr:hover {
+    background: #eaf0ff;
+}
+
+.data-table td[colspan] {
+    padding: 36px;
+    text-align: center;
+    font-weight: 600;
+    color: var(--ink-mute);
+}
+
+.data-table button {
+    padding: 7px 14px;
+    margin: 2px;
+    font-size: .78rem;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, var(--blue), #1f4fd6);
+    border-radius: 8px;
+}
+
+.data-table button.danger {
+    background: linear-gradient(135deg, #ff6b78, #d93b4b);
+}
+
+.status {
+    display: inline-block;
+    padding: 5px 14px;
+    font-size: .75rem;
+    font-weight: 800;
+    border-radius: 999px;
+    background: #e8ecfa;
+    color: var(--navy-800);
+}
+
+.status.confirmed,
+.status.booked {
+    background: rgba(46, 204, 143, .15);
+    color: #0f8c5c;
+}
+
+.status.pending {
+    background: rgba(255, 176, 32, .18);
+    color: #a96a00;
+}
+
+.status.cancelled,
+.status.refunded {
+    background: rgba(255, 93, 108, .15);
+    color: #c22a3a;
+}
+
+/* ---------- Digital ticket ---------- */
+#digital-ticket fieldset {
+    display: block;
+    max-width: 620px;
+    padding-top: 32px;
+    border: 2px dashed var(--gold-400);
+}
+
+#digital-ticket fieldset p {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 10px 0;
+    font-weight: 700;
+    color: var(--ink-soft);
+    border-bottom: 1px dotted #c3cbe8;
+}
+
+#digital-ticket fieldset p span {
+    color: var(--navy-800);
+    font-weight: 800;
+    text-align: right;
+}
+
+#digital-ticket h3 {
+    margin: 22px 0 12px;
+    text-align: center;
+}
+
+#qrCodeArea {
+    display: grid;
+    place-items: center;
+    min-height: 180px;
+    padding: 24px;
+    text-align: center;
+    font-weight: 600;
+    color: var(--ink-mute);
+    background: #fff;
+    border: 2px dashed #c3cbe8;
+    border-radius: 18px;
+}
+
+#qrCodeArea img,
+#qrCodeArea canvas {
+    padding: 10px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 26px rgba(10, 29, 74, .25);
+}
+
+/* ---------- Footer ---------- */
+.footer {
+    padding: 44px 4vw 30px;
+    text-align: center;
+    border-top: 1px solid rgba(247, 201, 72, .25);
+    background: linear-gradient(180deg, transparent, rgba(3, 10, 28, .95));
+}
+
+.footer h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--gold-400);
+    text-shadow: 0 0 18px rgba(247, 201, 72, .4);
+}
+
+.footer p {
+    margin-top: 6px;
+    font-size: .9rem;
+    color: rgba(255, 255, 255, .65);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+    fieldset {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    fieldset:not(:has(input[type="checkbox"], input[type="radio"]))>label~label {
+        padding-left: 0;
+        margin-top: 8px;
+    }
+
+    label {
+        white-space: normal;
+    }
+
+    fieldset>button[type="submit"],
+    fieldset>button[type="reset"] {
+        grid-column: 1 / -1;
+        justify-self: stretch;
+        margin-top: 12px;
+    }
+
+    .topnav {
+        justify-content: flex-start;
+    }
+
+    #dashboard .section-heading h1 {
+        white-space: normal;
+    }
+
+    #dashboard .section-heading::after {
+        opacity: .18;
+    }
+}
+
+@media (max-width: 600px) {
+    .header {
+        flex-direction: column;
+    }
+
+    form>button {
+        width: 100%;
+    }
+
+    fieldset:has(input[type="checkbox"], input[type="radio"])> :is(input:not([type="checkbox"], [type="radio"]), select) {
+        flex-basis: 100%;
+    }
+}
+
+/* ==========================================================
+   FIXES + CINEMA POSTER STYLE (matches reference designs)
+   ========================================================== */
+
+/* Legend pill: always navy + gold border (Digital Ticket included) */
+fieldset>legend,
+#digital-ticket legend {
+    color: #fff !important;
+    background: linear-gradient(145deg, var(--navy-700), var(--navy-950)) !important;
+    border: 1.5px solid var(--gold-400) !important;
+}
+
+/* QR box: no stray line under the placeholder text, QR centered */
+#qrCodeArea p {
+    display: block;
+    padding: 0;
+    border: 0;
+    color: var(--ink-mute);
+}
+
+#qrCodeArea img {
+    margin: auto;
+}
+
+#digital-ticket fieldset {
+    box-shadow: var(--shadow), 0 0 36px rgba(247, 201, 72, .18);
+}
+
+/* Selected state = blue everywhere */
+input[name="seat[]"]:focus-visible+label {
+    outline-color: var(--blue);
+}
+
+.btn-book.selected,
+.tab.active {
+    color: #fff;
+    background: linear-gradient(135deg, #5b8cff, #1f4fd6);
+}
+
+/* ---------- Now Showing: poster cards ---------- */
+.movie-row {
+    display: flex;
+    gap: 22px;
+    padding: 12px 4px 28px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: var(--blue) transparent;
+}
+
+.movie-card {
+    flex: 0 0 210px;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 18px;
+    background: linear-gradient(180deg, #0f1f4d, #08122f);
+    border: 1px solid rgba(255, 255, 255, .08);
+    box-shadow: var(--shadow);
+    transition: transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s;
+}
+
+.movie-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    border-color: var(--blue);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, .65), 0 0 34px rgba(47, 107, 255, .45);
+}
+
+.poster {
+    position: relative;
+    aspect-ratio: 2 / 3;
+    overflow: hidden;
+    background: linear-gradient(160deg, var(--navy-700), var(--navy-950) 70%);
+}
+
+.poster img {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .6s var(--ease);
+}
+
+.movie-card:hover .poster img {
+    transform: scale(1.08);
+}
+
+.poster-title {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 16px;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--gold-300);
+}
+
+.poster::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: linear-gradient(180deg, transparent 55%, rgba(3, 10, 28, .92));
+}
+
+.rating {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 3;
+    padding: 4px 10px;
+    font-size: .75rem;
+    font-weight: 800;
+    color: var(--navy-950);
+    background: linear-gradient(135deg, var(--gold-300), var(--gold-400));
+    border-radius: 999px;
+}
+
+.movie-info {
+    display: grid;
+    gap: 4px;
+    padding: 14px 16px 16px;
+}
+
+.movie-info h3 {
+    font-size: 1.05rem;
+    font-weight: 800;
+}
+
+.movie-info p {
+    font-size: .78rem;
+    color: rgba(255, 255, 255, .6);
+}
+
+.movie-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.btn-trailer,
+.btn-book {
+    flex: 1;
+    padding: 9px 8px;
+    font: 800 .78rem "Segoe UI", system-ui, Arial, sans-serif;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.btn-trailer {
+    color: #fff;
+    background: rgba(255, 255, 255, .1);
+    border: 1px solid rgba(255, 255, 255, .25);
+}
+
+.btn-trailer:hover {
+    background: rgba(255, 255, 255, .22);
+    transform: translateY(-2px);
+}
+
+.btn-book {
+    color: var(--navy-950);
+    background: linear-gradient(135deg, var(--gold-300), var(--gold-400), var(--gold-600));
+    transition: transform .25s var(--ease), box-shadow .25s;
+}
+
+.btn-book:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(247, 201, 72, .55);
+}
+
+/* Trailer popup */
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    background: rgba(2, 6, 18, .88);
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s, visibility .3s;
+}
+
+.modal.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-box {
+    position: relative;
+    width: min(940px, 100%);
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #000;
+    border: 1px solid var(--gold-400);
+    border-radius: 18px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, .8), 0 0 50px rgba(47, 107, 255, .35);
+    transform: scale(.92);
+    transition: transform .35s var(--ease);
+}
+
+.modal.open .modal-box {
+    transform: scale(1);
+}
+
+.modal-box iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+    width: 38px;
+    height: 38px;
+    font-size: 1.4rem;
+    line-height: 1;
+    color: #fff;
+    background: rgba(0, 0, 0, .65);
+    border-radius: 50%;
+}
+
+.modal-close:hover {
+    background: var(--blue);
+    transform: rotate(90deg);
+}
+
+#now-showing h2::before {
+    content: "🍿 ";
+}
+
+@media (max-width: 700px) {
+    .movie-card {
+        flex-basis: 170px;
+    }
+}
+
+/* ==========================================================
+   CSS-ONLY EXTRAS (no JS, no HTML change)
+   ========================================================== */
+
+/* 1) Poster pops out of the "Movie Details" card when a movie is selected.
+      Put poster images in an  images/  folder: avengers.jpg, interstellar.jpg, inception.jpg, titanic.jpg
+      (if an image is missing, a coloured fallback card with the title shows instead) */
+#bookingForm>fieldset:first-of-type::after {
+    content: "";
+    position: absolute;
+    right: 34px;
+    top: -44px;
+    z-index: 3;
+    width: 120px;
+    height: 176px;
+    display: grid;
+    align-items: end;
+    justify-items: center;
+    padding: 12px;
+    text-align: center;
+    font: 800 .82rem "Segoe UI", system-ui, Arial, sans-serif;
+    color: #fff;
+    text-shadow: 0 2px 8px #000;
+    border: 1px solid rgba(247, 201, 72, .7);
+    border-radius: 14px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .55), 0 0 26px rgba(47, 107, 255, .55);
+    opacity: 0;
+    transform: translateY(14px) scale(.9) rotate(3deg);
+    pointer-events: none;
+    transition: opacity .45s var(--ease), transform .45s var(--ease);
+}
+
+#bookingForm:has(#movie option[value]:not([value=""]):checked)>fieldset:first-of-type::after {
+    opacity: 1;
+    transform: none;
+}
+
+#bookingForm:has(#movie option[value="Avengers"]:checked)>fieldset:first-of-type::after {
+    content: "Avengers";
+    background: linear-gradient(180deg, transparent 55%, rgba(3, 10, 28, .92)), url("../images/avengers.jpg") center / cover, linear-gradient(160deg, #b3122a, #1a0a2e);
+}
+
+#bookingForm:has(#movie option[value="Interstellar"]:checked)>fieldset:first-of-type::after {
+    content: "Interstellar";
+    background: linear-gradient(180deg, transparent 55%, rgba(3, 10, 28, .92)), url("../images/interstellar.jpg") center / cover, linear-gradient(160deg, #e08a1e, #04102e);
+}
+
+#bookingForm:has(#movie option[value="Inception"]:checked)>fieldset:first-of-type::after {
+    content: "Inception";
+    background: linear-gradient(180deg, transparent 55%, rgba(3, 10, 28, .92)), url("../images/inception.jpg") center / cover, linear-gradient(160deg, #3d7bff, #061330);
+}
+
+#bookingForm:has(#movie option[value="Titanic"]:checked)>fieldset:first-of-type::after {
+    content: "Titanic";
+    background: linear-gradient(180deg, transparent 55%, rgba(3, 10, 28, .92)), url("../images/titanic.jpg") center / cover, linear-gradient(160deg, #1fa3c7, #04162e);
+}
+
+@media (max-width: 1150px) {
+    #bookingForm>fieldset:first-of-type::after {
+        display: none;
+    }
+}
+
+/* 2) QR box looks like a QR placeholder until a real QR is inserted later */
+#qrCodeArea:has(> p)::before {
+    content: "";
+    width: 88px;
+    height: 88px;
+    margin-bottom: 14px;
+    border: 7px solid var(--navy-800);
+    border-radius: 12px;
+    opacity: .2;
+    background: conic-gradient(var(--navy-800) 25%, transparent 0 50%, var(--navy-800) 0 75%, transparent 0) 0 0 / 22px 22px;
+}
+
+/* ==========================================================
+   JS-READY CLASSES (pore JS diye ei class gulo lagale style ashe jabe)
+   ========================================================== */
+
+/* Helpers */
+.hidden {
+    display: none !important;
+}
+
+/* Validation: JS e  input.classList.add("invalid")  */
+input.invalid,
+select.invalid {
+    border-color: var(--danger);
+    box-shadow: 0 0 0 4px rgba(255, 93, 108, .16);
+    animation: shake .35s;
+}
+
+input.valid,
+select.valid {
+    border-color: #2ecc8f;
+}
+
+@keyframes shake {
+    25% {
+        transform: translateX(-5px);
+    }
+
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+/* Toast popup: <div class="toast success">Booking successful!</div> (inside <div class="toast-container">) */
+.toast-container {
+    position: fixed;
+    top: 84px;
+    right: 20px;
+    z-index: 300;
+    display: grid;
+    gap: 10px;
+}
+
+.toast {
+    min-width: 260px;
+    max-width: 360px;
+    padding: 14px 18px;
+    font-size: .9rem;
+    font-weight: 700;
+    color: #fff;
+    background: rgba(10, 29, 74, .95);
+    border: 1px solid rgba(255, 255, 255, .15);
+    border-left: 4px solid var(--blue);
+    border-radius: 14px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, .5);
+    backdrop-filter: blur(10px);
+    animation: toastIn .45s var(--ease);
+}
+
+.toast.success {
+    border-left-color: #2ecc8f;
+}
+
+.toast.error {
+    border-left-color: var(--danger);
+}
+
+.toast.warning {
+    border-left-color: var(--gold-400);
+}
+
+.toast.success::before {
+    content: "✓  ";
+    color: #2ecc8f;
+}
+
+.toast.error::before {
+    content: "✕  ";
+    color: var(--danger);
+}
+
+@keyframes toastIn {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+}
+
+/* Button loading: button.classList.add("loading") */
+button.loading {
+    pointer-events: none;
+    opacity: .75;
+    position: relative;
+    color: transparent !important;
+}
+
+button.loading::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(0, 0, 0, .25);
+    border-top-color: var(--navy-950);
+    border-radius: 50%;
+    animation: spin .7s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* New table row highlight: <tr class="row-new"> */
+.data-table tr.row-new {
+    animation: rowIn 1.6s var(--ease);
+}
+
+@keyframes rowIn {
+    from {
+        background: rgba(247, 201, 72, .45);
+        transform: translateX(-12px);
+        opacity: 0;
+    }
+}
+
+/* Already-booked seats: JS e  seatInput.disabled = true */
+input[name="seat[]"]:disabled+label {
+    color: transparent;
+    background: repeating-linear-gradient(45deg, #cfd5ea 0 6px, #dfe4f4 6px 12px);
+    box-shadow: none;
+    position: relative;
+}
+
+input[name="seat[]"]:disabled+label::after {
+    content: "✕";
+    position: absolute;
+    color: #8a93b2;
+    font-size: .9rem;
+}
+
+/* Digital ticket after booking: <section id="digital-ticket" class="home-section booked"> */
+#digital-ticket.booked fieldset::after {
+    content: "CONFIRMED";
+    position: absolute;
+    top: 26px;
+    right: 24px;
+    padding: 4px 14px;
+    font-size: .75rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #0f8c5c;
+    border: 2px solid #2ecc8f;
+    border-radius: 8px;
+    transform: rotate(8deg);
+    background: rgba(46, 204, 143, .1);
+}
+
+#digital-ticket.cancelled fieldset::after {
+    content: "CANCELLED";
+    position: absolute;
+    top: 26px;
+    right: 24px;
+    padding: 4px 14px;
+    font-size: .75rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #c22a3a;
+    border: 2px solid var(--danger);
+    border-radius: 8px;
+    transform: rotate(8deg);
+    background: rgba(255, 93, 108, .1);
+}
+
+.status.completed {
+    background: rgba(47, 107, 255, .15);
+    color: #1f4fd6;
+}
+
+/* ==========================================================
+   COLOURFUL PREMIUM THEME (white areas -> rich tinted glass)
+   ========================================================== */
+:root {
+    --glass:
+        radial-gradient(440px 240px at 100% 0%, rgba(247, 201, 72, .34), transparent 70%),
+        radial-gradient(480px 280px at 0% 100%, rgba(91, 140, 255, .36), transparent 70%),
+        linear-gradient(145deg, #eaf1ff 0%, #e3deff 52%, #f4e2ff 100%);
+}
+
+/* page background: a little violet glow added */
+body {
+    background:
+        radial-gradient(800px 420px at 50% 62%, rgba(47, 107, 255, .28), transparent 70%),
+        radial-gradient(700px 420px at 0% 55%, rgba(139, 92, 246, .22), transparent 70%),
+        radial-gradient(600px 400px at 100% 20%, rgba(16, 42, 107, .6), transparent 70%),
+        linear-gradient(180deg, var(--navy-950), var(--navy-900) 45%, #070d2b);
+    background-attachment: fixed;
+}
+
+/* cards: coloured glow border + rainbow top line */
+fieldset,
+.card {
+    border: 1px solid rgba(255, 255, 255, .7);
+    box-shadow: var(--shadow), 0 0 0 1px rgba(124, 92, 255, .4), 0 0 42px rgba(99, 102, 255, .32);
+}
+
+fieldset::before {
+    height: 3px;
+    background: linear-gradient(90deg, #2f6bff, #8b5cf6 45%, var(--gold-400) 80%, transparent);
+}
+
+/* each form card gets its own legend colour */
+#bookingForm>fieldset:nth-of-type(1)>legend {
+    background: linear-gradient(135deg, #1f4fd6, #061330) !important;
+}
+
+#bookingForm>fieldset:nth-of-type(2)>legend {
+    background: linear-gradient(135deg, #7c3aed, #1b0f4a) !important;
+}
+
+#bookingForm>fieldset:nth-of-type(3)>legend {
+    background: linear-gradient(135deg, #0e9f8e, #05283a) !important;
+}
+
+#bookingForm>fieldset:nth-of-type(4)>legend {
+    background: linear-gradient(135deg, #d97706, #3b1d05) !important;
+}
+
+#cancellation legend {
+    background: linear-gradient(135deg, #e11d48, #3b0a1a) !important;
+}
+
+#digital-ticket legend {
+    background: linear-gradient(135deg, #7c3aed, #1b0f4a) !important;
+}
+
+#profile legend {
+    background: linear-gradient(135deg, #0e9f8e, #05283a) !important;
+}
+
+/* inputs: soft tint + coloured border */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="date"],
+select {
+    background-color: #fbfcff;
+    border-color: #c9d4ff;
+}
+
+label {
+    color: #1b2a6b;
+}
+
+/* feature cards: blue / green / purple */
+.feature:nth-child(1) {
+    background: linear-gradient(145deg, #e8f0ff, #bcd3ff);
+    box-shadow: var(--shadow), inset 0 -3px 0 #3d7bff;
+}
+
+.feature:nth-child(2) {
+    background: linear-gradient(145deg, #e6fff4, #b4f0d6);
+    box-shadow: var(--shadow), inset 0 -3px 0 #20c997;
+}
+
+.feature:nth-child(3) {
+    background: linear-gradient(145deg, #f3e8ff, #d4bcff);
+    box-shadow: var(--shadow), inset 0 -3px 0 #8b5cf6;
+}
+
+.feature:nth-child(1):hover {
+    box-shadow: 0 26px 50px rgba(0, 0, 0, .5), 0 0 30px rgba(61, 123, 255, .55), inset 0 -3px 0 #3d7bff;
+}
+
+.feature:nth-child(2):hover {
+    box-shadow: 0 26px 50px rgba(0, 0, 0, .5), 0 0 30px rgba(32, 201, 151, .55), inset 0 -3px 0 #20c997;
+}
+
+.feature:nth-child(3):hover {
+    box-shadow: 0 26px 50px rgba(0, 0, 0, .5), 0 0 30px rgba(139, 92, 246, .55), inset 0 -3px 0 #8b5cf6;
+}
+
+.feature:nth-child(1) .feature-icon {
+    background: linear-gradient(145deg, #3d7bff, #0a1d4a);
+}
+
+.feature:nth-child(2) .feature-icon {
+    background: linear-gradient(145deg, #20c997, #064e3b);
+}
+
+.feature:nth-child(3) .feature-icon {
+    background: linear-gradient(145deg, #8b5cf6, #2e1065);
+}
+
+/* seat rows: A = gold, B = violet, C = sky (selected seat is still blue) */
+input[id^="seatA"]+label {
+    background: linear-gradient(180deg, #fff8e1, #ffe08a);
+    border-color: #f0c040;
+    box-shadow: 0 5px 0 #d9a520, 0 8px 14px rgba(10, 29, 74, .15);
+}
+
+input[id^="seatB"]+label {
+    background: linear-gradient(180deg, #f5edff, #d9c4ff);
+    border-color: #b794f6;
+    box-shadow: 0 5px 0 #9061e0, 0 8px 14px rgba(10, 29, 74, .15);
+}
+
+input[id^="seatC"]+label {
+    background: linear-gradient(180deg, #eaf6ff, #bfe0ff);
+    border-color: #7cb8f5;
+    box-shadow: 0 5px 0 #4f93da, 0 8px 14px rgba(10, 29, 74, .15);
+}
+
+fieldset h4 {
+    color: #4b3fd8;
+}
+
+/* payment pills: bKash pink, Nagad orange, Card blue (selected = blue) */
+input[value="bKash"]+label {
+    background: linear-gradient(135deg, #fff0f7, #ffc9e0);
+    border-color: #f58bb8;
+    color: #a80f55;
+}
+
+input[value="Nagad"]+label {
+    background: linear-gradient(135deg, #fff5e6, #ffd9a8);
+    border-color: #f5b25c;
+    color: #a35200;
+}
+
+input[value="Card"]+label {
+    background: linear-gradient(135deg, #eaf1ff, #c4d8ff);
+    border-color: #8fb0f5;
+    color: #0a1d4a;
+}
+
+input[name="payment"]:checked+label {
+    color: #fff;
+    background: linear-gradient(135deg, #3d7bff, #1f4fd6);
+    border-color: var(--gold-400);
+}
+
+/* price box */
+#priceSummary {
+    color: #0a1d4a;
+    background: linear-gradient(135deg, rgba(47, 107, 255, .16), rgba(247, 201, 72, .34));
+    border: 1px solid var(--gold-400);
+}
+
+/* tables */
+.table-wrapper {
+    background: #f4f7ff;
+    border-color: #c9d4ff;
+}
+
+.data-table th {
+    background: linear-gradient(135deg, #1f4fd6, #4c1d95);
+}
+
+.data-table tbody tr:nth-child(even) {
+    background: #eaf0ff;
+}
+
+.data-table tbody tr:hover {
+    background: #dce6ff;
+}
+
+/* digital ticket */
+#digital-ticket fieldset {
+    border: 2px dashed #8b5cf6;
+}
+
+#digital-ticket fieldset p span {
+    color: #4c1d95;
+}
+
+#qrCodeArea {
+    border-color: #8b5cf6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+
+/* ==========================================================
+   FINAL CSS-ONLY REFINEMENTS
+   Keeps the existing HTML and JavaScript unchanged.
+   Hero image file: images/cinema-hero-art.png
+   ========================================================== */
+
+/* Keep the original dark navy cinema palette consistent */
+:root {
+    --blue: #2f6bff;
+    --blue-light: #5b8cff;
+    --blue-deep: #1f4fd6;
+}
+
+/* HERO: replace the emoji props and red curtain effect with
+   the supplied cinematic popcorn / clapperboard / film-reel art */
+#dashboard .section-heading {
+    min-height: 285px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: clamp(280px, 42%, 500px);
+    background:
+        radial-gradient(500px 260px at 78% 50%, rgba(47, 107, 255, .20), transparent 72%),
+        linear-gradient(120deg, #040d26 0%, #0a1d4a 62%, #071636 100%);
+}
+
+#dashboard .section-heading::before {
+    background:
+        radial-gradient(ellipse at 82% 50%, rgba(247, 201, 72, .10), transparent 55%),
+        linear-gradient(90deg, rgba(3, 10, 28, .22), transparent 72%);
+}
+
+#dashboard .section-heading::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 2.5%;
+    width: 44%;
+    height: 88%;
+    margin: 0;
+    background: url("../images/cinema-hero-art.png") center / contain no-repeat;
+    box-shadow: none;
+    border: 0;
+    transform: translateY(-50%);
+    filter: drop-shadow(0 14px 28px rgba(0, 0, 0, .42));
+    animation: none;
+    opacity: 1;
+    z-index: 0;
+    pointer-events: none;
+}
+
+#dashboard .section-heading h1,
+#dashboard .section-heading p {
+    position: relative;
+    z-index: 1;
+}
+
+#dashboard .section-heading h1 {
+    max-width: 100%;
+    white-space: normal;
+    font-size: clamp(2rem, 4.2vw, 3.35rem);
+}
+
+#dashboard .section-heading p {
+    max-width: 540px;
+}
+
+/* Keep all primary action buttons BLUE */
+button[type="submit"],
+.btn-book,
+.data-table button:not(.danger) {
+    color: #fff;
+    background: linear-gradient(135deg, #5b8cff 0%, #2f6bff 48%, #1f4fd6 100%);
+    border: 1px solid rgba(255, 255, 255, .18);
+    box-shadow: 0 8px 22px rgba(47, 107, 255, .32),
+        inset 0 1px 0 rgba(255, 255, 255, .28);
+}
+
+button[type="submit"]:hover,
+.btn-book:hover,
+.data-table button:not(.danger):hover {
+    color: #fff;
+    background: linear-gradient(135deg, #76a0ff, #2f6bff 55%, #1946c4);
+    box-shadow: 0 12px 28px rgba(47, 107, 255, .48);
+    transform: translateY(-2px);
+}
+
+/* Selected movie / active booking controls stay blue */
+.btn-book.selected,
+.tab.active,
+input[name="payment"]:checked+label {
+    color: #fff;
+    background: linear-gradient(135deg, #5b8cff, #1f4fd6) !important;
+    border-color: #2f6bff;
+    box-shadow: 0 0 0 3px rgba(47, 107, 255, .18),
+        0 8px 22px rgba(47, 107, 255, .32);
+}
+
+/* Poster cards: consistent premium navy styling */
+.movie-card {
+    background: linear-gradient(180deg, #102653 0%, #061330 100%);
+    border: 1px solid rgba(120, 157, 255, .24);
+}
+
+.movie-card:hover {
+    border-color: #5b8cff;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, .55),
+        0 0 28px rgba(47, 107, 255, .38);
+}
+
+.movie-info h3 {
+    color: #fff;
+}
+
+.movie-info p {
+    color: rgba(226, 234, 255, .72);
+}
+
+.btn-trailer {
+    color: #eaf1ff;
+    background: rgba(47, 107, 255, .12);
+    border: 1px solid rgba(91, 140, 255, .42);
+}
+
+.btn-trailer:hover {
+    color: #fff;
+    background: rgba(47, 107, 255, .28);
+    border-color: #5b8cff;
+}
+
+/* The CSS-only selected-movie poster uses a blue frame */
+#bookingForm>fieldset:first-of-type::after {
+    border: 2px solid #5b8cff;
+    box-shadow: 0 18px 38px rgba(0, 0, 0, .52),
+        0 0 24px rgba(47, 107, 255, .42);
+}
+
+/* Selected seats remain blue regardless of their row colour */
+input[name="seat[]"]:checked+label {
+    color: #fff !important;
+    background: linear-gradient(180deg, #5b8cff, #1f4fd6) !important;
+    border-color: #1f4fd6 !important;
+    box-shadow: 0 5px 0 #153aa8,
+        0 0 22px rgba(47, 107, 255, .55) !important;
+}
+
+/* QR container: retain its real contents and improve presentation.
+   CSS decorates the QR area; it does not generate a working QR code. */
+#qrCodeArea {
+    border: 2px dashed rgba(91, 140, 255, .55);
+    background: linear-gradient(145deg, #fff, #f0f4ff);
+}
+
+/* Make the digital ticket details match the blue theme */
+#digital-ticket fieldset {
+    border: 1.5px solid rgba(91, 140, 255, .55);
+    box-shadow: var(--shadow), 0 0 30px rgba(47, 107, 255, .18);
+}
+
+#digital-ticket fieldset p span {
+    color: #1f4fd6;
+}
+
+/* Responsive hero: image moves behind the text on smaller screens */
+@media (max-width: 900px) {
+    #dashboard .section-heading {
+        min-height: 270px;
+        padding-right: 28px;
+        padding-bottom: 145px;
+    }
+
+    #dashboard .section-heading::after {
+        top: auto;
+        right: 3%;
+        bottom: 4px;
+        width: 58%;
+        height: 48%;
+        opacity: .82;
+        transform: none;
+    }
+
+    #dashboard .section-heading h1 {
+        max-width: 100%;
+    }
+
+    #dashboard .section-heading p {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    #dashboard .section-heading {
+        min-height: 310px;
+        padding: 28px 22px 150px;
+    }
+
+    #dashboard .section-heading::after {
+        right: 0;
+        bottom: 0;
+        width: 75%;
+        height: 43%;
+    }
+
+    .movie-card {
+        flex-basis: 170px;
+    }
+}
+
+
+
+/* ==========================================================
+   FINAL POLISH: NAVY + ROYAL BLUE + GOLD
+   ========================================================== */
+
+/* Blend the hero artwork into the navy hero background */
+#dashboard .section-heading::after {
+    -webkit-mask-image: linear-gradient(90deg,
+            transparent 0%,
+            rgba(0, 0, 0, .12) 8%,
+            rgba(0, 0, 0, .72) 24%,
+            #000 42%,
+            #000 92%,
+            transparent 100%);
+    mask-image: linear-gradient(90deg,
+            transparent 0%,
+            rgba(0, 0, 0, .12) 8%,
+            rgba(0, 0, 0, .72) 24%,
+            #000 42%,
+            #000 92%,
+            transparent 100%);
+    filter: drop-shadow(0 16px 30px rgba(0, 0, 0, .38));
+}
+
+/* One consistent blue treatment for all three feature cards */
+.feature:nth-child(1),
+.feature:nth-child(2),
+.feature:nth-child(3) {
+    background:
+        radial-gradient(240px 130px at 100% 0%, rgba(91, 140, 255, .20), transparent 75%),
+        linear-gradient(135deg, #f8faff 0%, #e7efff 58%, #dce8ff 100%);
+    border: 1px solid rgba(91, 140, 255, .34);
+    box-shadow:
+        0 16px 34px rgba(0, 0, 0, .22),
+        inset 0 -3px 0 #2f6bff;
+}
+
+.feature:nth-child(1):hover,
+.feature:nth-child(2):hover,
+.feature:nth-child(3):hover {
+    background:
+        radial-gradient(240px 130px at 100% 0%, rgba(91, 140, 255, .27), transparent 75%),
+        linear-gradient(135deg, #ffffff 0%, #edf3ff 58%, #dce8ff 100%);
+    box-shadow:
+        0 22px 42px rgba(0, 0, 0, .30),
+        0 0 24px rgba(47, 107, 255, .22),
+        inset 0 -3px 0 #2f6bff;
+    transform: translateY(-4px);
+}
+
+/* Match all feature icons to the royal-blue palette */
+.feature:nth-child(1) .feature-icon,
+.feature:nth-child(2) .feature-icon,
+.feature:nth-child(3) .feature-icon {
+    background: linear-gradient(145deg, #5b8cff 0%, #2f6bff 55%, #102b75 100%);
+    color: #fff;
+    box-shadow: 0 10px 22px rgba(31, 79, 214, .32);
+}
+
+/* Keep gold as a small premium accent, not a competing card colour */
+.feature:nth-child(1),
+.feature:nth-child(2),
+.feature:nth-child(3) {
+    border-bottom-color: #e8b84f;
+}
+
+/* Consistent readable text across all feature cards */
+.feature:nth-child(1) h3,
+.feature:nth-child(2) h3,
+.feature:nth-child(3) h3 {
+    color: #0a1d4a;
+}
+
+.feature:nth-child(1) p,
+.feature:nth-child(2) p,
+.feature:nth-child(3) p {
+    color: #52658f;
+}
+
+/* Preserve the existing blue action buttons */
+button[type="submit"],
+.btn-book {
+    background: linear-gradient(135deg, #5b8cff 0%, #2f6bff 52%, #1f4fd6 100%);
+    color: #fff;
+}
+
+/* Small screens: keep the image fade while retaining legibility */
+@media (max-width: 900px) {
+    #dashboard .section-heading::after {
+        -webkit-mask-image: linear-gradient(90deg,
+                transparent 0%,
+                rgba(0, 0, 0, .25) 12%,
+                #000 48%,
+                #000 100%);
+        mask-image: linear-gradient(90deg,
+                transparent 0%,
+                rgba(0, 0, 0, .25) 12%,
+                #000 48%,
+                #000 100%);
+    }
+}
+
+/* ==========================================
+   FINAL PREMIUM BOOKING CARDS
+   HTML and JavaScript remain unchanged
+========================================== */
+
+/* Clean premium white glass panels */
+#bookingForm>fieldset {
+    background:
+        radial-gradient(500px 220px at 100% 0%,
+            rgba(91, 140, 255, 0.10),
+            transparent 75%),
+        linear-gradient(145deg,
+            #ffffff 0%,
+            #f8faff 60%,
+            #f0f5ff 100%) !important;
+
+    border: 1px solid rgba(151, 177, 230, 0.55) !important;
+    border-radius: 22px !important;
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.22),
+        0 0 0 1px rgba(91, 140, 255, 0.10),
+        inset 0 1px 0 #ffffff !important;
+
+    transition: box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+/* Elegant blue-gold accent */
+#bookingForm>fieldset::before {
+    height: 3px !important;
+    background: linear-gradient(90deg,
+            #315efb,
+            #75a3ff 55%,
+            #e8bd58) !important;
+}
+
+/* Consistent premium section headings */
+#bookingForm>fieldset:nth-of-type(1)>legend,
+#bookingForm>fieldset:nth-of-type(2)>legend,
+#bookingForm>fieldset:nth-of-type(3)>legend,
+#bookingForm>fieldset:nth-of-type(4)>legend {
+    color: #ffffff !important;
+    background: linear-gradient(135deg,
+            #315efb,
+            #102c70) !important;
+
+    border: 1px solid rgba(255, 255, 255, .65) !important;
+    border-radius: 12px !important;
+
+    box-shadow:
+        0 8px 20px rgba(25, 65, 160, .25) !important;
+}
+
+/* Premium input fields */
+#bookingForm input[type="text"],
+#bookingForm input[type="email"],
+#bookingForm input[type="tel"],
+#bookingForm input[type="number"],
+#bookingForm input[type="date"],
+#bookingForm select {
+    background: #ffffff !important;
+    border: 1px solid #d3def4 !important;
+    border-radius: 12px !important;
+
+    box-shadow: 0 4px 12px rgba(20, 50, 110, .06) !important;
+}
+
+#bookingForm input:focus,
+#bookingForm select:focus {
+    border-color: #315efb !important;
+    box-shadow: 0 0 0 4px rgba(49, 94, 251, .12) !important;
+}
+
+/* Royal blue booking buttons */
+#bookingForm button[type="submit"] {
+    color: #ffffff !important;
+    background: linear-gradient(135deg,
+            #477dff,
+            #2452df) !important;
+
+    border: 1px solid #6e96ff !important;
+    border-radius: 12px !important;
+
+    box-shadow: 0 8px 20px rgba(49, 94, 251, .28) !important;
+}
+
+#bookingForm button[type="submit"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 26px rgba(49, 94, 251, .4) !important;
+}
+
+#bookingForm button[type="reset"] {
+    color: #2452df !important;
+    background: #ffffff !important;
+    border: 1px solid #9bb7ff !important;
+    border-radius: 12px !important;
+}
+
+/* Blue price summary */
+#priceSummary {
+    background: linear-gradient(110deg,
+            #edf3ff,
+            #ffffff) !important;
+
+    color: #173b91 !important;
+    border: 1px solid #c4d5ff !important;
+    border-left: 4px solid #315efb !important;
+    border-radius: 13px !important;
+    box-shadow: 0 5px 15px rgba(49, 94, 251, .07);
+}
+
+/* Preserve blue selected seats */
+input[name="seat[]"]:checked+label {
+    color: #ffffff !important;
+    background: linear-gradient(135deg,
+            #477dff,
+            #1f4fd6) !important;
+    border-color: #2452df !important;
+}
+
+/* Mobile compatibility */
+@media (max-width: 768px) {
+    #bookingForm>fieldset {
+        border-radius: 16px !important;
+        padding: 28px 18px !important;
+    }
+
+    #bookingForm>fieldset>legend {
+        font-size: 15px;
+        padding: 8px 16px;
+    }
+}
+
+/* ==========================================================
+   FINAL SAFE COLOUR ENHANCEMENT
+   Appended only: keeps the existing HTML, layout and JS intact.
+   ========================================================== */
+
+/* Give the existing content panels a richer blue-violet finish */
+fieldset,
+.card {
+    background:
+        radial-gradient(520px 240px at 100% 0%,
+            rgba(164, 139, 255, .30), transparent 72%),
+        radial-gradient(460px 220px at 0% 100%,
+            rgba(91, 140, 255, .24), transparent 72%),
+        linear-gradient(135deg,
+            #e4ebff 0%,
+            #e9e3ff 52%,
+            #f4e5f7 100%) !important;
+    border-color: rgba(151, 165, 235, .72) !important;
+    box-shadow:
+        0 18px 42px rgba(0, 0, 0, .22),
+        0 0 0 1px rgba(112, 102, 220, .14),
+        0 10px 30px rgba(91, 105, 220, .12) !important;
+}
+
+/* Keep the booking sections visually consistent */
+#bookingForm>fieldset {
+    background:
+        radial-gradient(500px 230px at 100% 0%,
+            rgba(255, 193, 7, .30), transparent 72%),
+        radial-gradient(440px 220px at 0% 100%,
+            rgba(91, 75, 220, .28), transparent 72%),
+        linear-gradient(135deg,
+            #dce8ff 0%,
+            #e5dcff 48%,
+            #fce6f2 78%,
+            #fff0cf 100%) !important;
+}
+
+/* Slightly stronger purple tint for the digital ticket panel */
+#digital-ticket fieldset {
+    background:
+        radial-gradient(420px 220px at 100% 0%,
+            rgba(190, 145, 255, .32), transparent 72%),
+        linear-gradient(135deg,
+            #eee8ff 0%,
+            #e4e5ff 58%,
+            #f5e6fb 100%) !important;
+}
+
+/* Cancellation panel: soft rose-violet tint */
+#cancellation fieldset {
+    background:
+        radial-gradient(420px 220px at 100% 0%,
+            rgba(255, 160, 194, .25), transparent 72%),
+        linear-gradient(135deg,
+            #f0e9ff 0%,
+            #eee5fa 58%,
+            #fbe8f1 100%) !important;
+}
+
+/* Profile panel: blue-violet tint, without changing its layout */
+#profile fieldset {
+    background:
+        radial-gradient(420px 220px at 100% 0%,
+            rgba(120, 170, 255, .28), transparent 72%),
+        linear-gradient(135deg,
+            #e4edff 0%,
+            #e9e5ff 58%,
+            #f2e9fa 100%) !important;
+}
+
+/* Give the table container a visible lavender surface */
+.table-wrapper {
+    background: linear-gradient(135deg, #e9eaff, #f2e9ff) !important;
+    border-color: #c5c9f5 !important;
+}
+
+/* Keep QR readable and scannable: only tint its border */
+#qrCodeArea {
+    background: linear-gradient(145deg, #ffffff, #f4f1ff) !important;
+    border-color: #9a86f5 !important;
+}
+
+/* Keep form controls white for clear text and easy reading */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="date"],
+select {
+    background-color: #ffffff !important;
+}
+
+/* Improve contrast on the existing section labels */
+fieldset h3,
+fieldset h4 {
+    color: #273b91;
+}
+
+/* Consistent blue-violet top accent; preserves the original dimensions */
+fieldset::before {
+    background: linear-gradient(90deg,
+            #315efb 0%,
+            #8b5cf6 58%,
+            #e8bd58 100%) !important;
+}
+
+/* Responsive safety: no layout or element sizing changes */
+@media (max-width: 768px) {
+
+    fieldset,
+    .card {
+        background:
+            linear-gradient(135deg,
+                #e7edff 0%,
+                #ece6ff 58%,
+                #f5e9f8 100%) !important;
+    }
+}
+
+
+/* ==========================================================
+   FINAL: COLOURFUL PREMIUM WHITE AREAS (short version)
+   ========================================================== */
+
+:root {
+    --tint: linear-gradient(135deg, #f7faff 0%, #e9f0ff 55%, #ede5ff 100%);
+    --tint-focus: linear-gradient(135deg, #ffffff 0%, #eaf1ff 55%, #f1e9ff 100%);
+    --arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%231f4fd6' stroke-width='3' stroke-linecap='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+}
+
+/* ---------- 1) All fields: input + select ---------- */
+html body :is(#bookingForm, body) :is(input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="date"]) {
+    background: var(--tint) !important;
+}
+
+html body :is(#bookingForm, body) select {
+    background: var(--arrow) no-repeat right 16px center, var(--tint) !important;
+}
+
+html body :is(#bookingForm, body) :is(input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="date"], select) {
+    color: #0b1533;
+    border: 1.5px solid #b9c9f7 !important;
+    box-shadow: 0 6px 16px rgba(47, 107, 255, .12), inset 0 1px 0 rgba(255, 255, 255, .9) !important;
+}
+
+html body :is(#bookingForm, body) :is(input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="date"], select):hover {
+    border-color: #7d9dff !important;
+    box-shadow: 0 8px 20px rgba(47, 107, 255, .2), inset 0 1px 0 rgba(255, 255, 255, .9) !important;
+}
+
+html body :is(#bookingForm, body) :is(input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="date"]):focus {
+    background: var(--tint-focus) !important;
+}
+
+html body :is(#bookingForm, body) :is(input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="date"], select):focus {
+    border-color: #2f6bff !important;
+    box-shadow: 0 0 0 4px rgba(47, 107, 255, .2), 0 10px 24px rgba(47, 107, 255, .22) !important;
+}
+
+/* Validation colours (JS: invalid / valid class) */
+html body :is(#bookingForm, body) :is(input, select).invalid {
+    border-color: #ff5d6c !important;
+    box-shadow: 0 0 0 4px rgba(255, 93, 108, .18) !important;
+}
+
+html body :is(#bookingForm, body) :is(input, select).valid {
+    border-color: #2ecc8f !important;
+}
+
+input::placeholder {
+    color: #7f8fc4;
+}
+
+select option {
+    color: #0b1533;
+    background: #eef3ff;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #0b1533;
+    -webkit-box-shadow: 0 0 0 40px #e9f0ff inset !important;
+}
+
+/* ---------- 2) "Clear Form" buttons ---------- */
+html body :is(#bookingForm, body) button[type="reset"] {
+    color: #1f4fd6 !important;
+    background: linear-gradient(135deg, #eef3ff, #e4dcff) !important;
+    border: 1.5px solid #8fa9ff !important;
+    box-shadow: 0 6px 16px rgba(47, 107, 255, .16) !important;
+}
+
+html body :is(#bookingForm, body) button[type="reset"]:hover {
+    color: #fff !important;
+    background: linear-gradient(135deg, #7b5cf0, #2f6bff) !important;
+    border-color: #2f6bff !important;
+    box-shadow: 0 10px 24px rgba(47, 107, 255, .38) !important;
+}
+
+/* ---------- 3) Price summary ---------- */
+html body #priceSummary {
+    color: #0a1d4a !important;
+    background: linear-gradient(110deg, #dbe6ff 0%, #e8defd 55%, #fdeec0 100%) !important;
+    border: 1px solid #b7c8fb !important;
+    border-left: 4px solid #315efb !important;
+    box-shadow: 0 8px 20px rgba(47, 107, 255, .14) !important;
+}
+
+/* ---------- 4) Tables ---------- */
+html body .table-wrapper {
+    background: linear-gradient(135deg, #dfe8ff, #ebe1ff) !important;
+    border: 1px solid #b4c3f3 !important;
+}
+
+html body .data-table tbody tr:nth-child(odd) {
+    background: linear-gradient(90deg, #e3ebff, #ece4ff);
+}
+
+html body .data-table tbody tr:nth-child(even) {
+    background: linear-gradient(90deg, #ece6ff, #f6e8fb);
+}
+
+html body .data-table tbody tr:hover {
+    background: linear-gradient(90deg, #cfdcff, #ddd0ff);
+}
+
+html body .data-table td {
+    color: #0b1533;
+    border-bottom: 1px solid #c9d3f5;
+}
+
+/* ---------- 5) QR box (QR image keeps white border so it scans) ---------- */
+html body #qrCodeArea {
+    background: linear-gradient(145deg, #e3ebff 0%, #ebe3ff 55%, #f7e7fb 100%) !important;
+    border: 2px dashed #8b7cf6 !important;
+}
+
+html body #qrCodeArea :is(img, canvas) {
+    background: #fff;
+    padding: 10px;
+    border-radius: 14px;
+    box-shadow: 0 12px 28px rgba(47, 107, 255, .28);
+}
+
+/* PREMIUM ROYAL BLUE - VIOLET PANEL ENHANCEMENT */
+
+html body fieldset {
+    background:
+        radial-gradient(circle at 5% 5%,
+            rgba(92, 125, 255, 0.24),
+            transparent 42%),
+        radial-gradient(circle at 95% 95%,
+            rgba(173, 105, 255, 0.25),
+            transparent 45%),
+        linear-gradient(135deg,
+            #dce7ff 0%,
+            #ded5ff 50%,
+            #f0dcff 100%) !important;
+
+    border: 1.5px solid #a9b8ff !important;
+
+    box-shadow:
+        0 12px 30px rgba(35, 52, 130, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.85) !important;
+}
+
+/* ===== PREMIUM BOOKING INPUT FIELDS ===== */
+
+#bookingForm input[type="text"],
+#bookingForm input[type="email"],
+#bookingForm input[type="tel"],
+#bookingForm input[type="number"],
+#bookingForm input[type="date"],
+#bookingForm select {
+    background: linear-gradient(135deg,
+            #e8efff 0%,
+            #eee5ff 55%,
+            #fce9f5 100%) !important;
+
+    color: #10245a !important;
+    border: 1.5px solid #a9baff !important;
+    box-shadow: 0 5px 15px rgba(47, 91, 220, 0.12);
+    transition: all 0.25s ease;
+}
+
+/* Hover effect */
+#bookingForm input:hover,
+#bookingForm select:hover {
+    border-color: #8068ed !important;
+    box-shadow: 0 6px 18px rgba(91, 75, 220, 0.20);
+}
+
+/* Focus effect */
+#bookingForm input:focus,
+#bookingForm select:focus {
+    border-color: #315eff !important;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(49, 94, 255, 0.18);
+}
+
+/* Placeholder */
+#bookingForm input::placeholder {
+    color: #7786b5;
+}
+
+/* PREMIUM PRICE SUMMARY */
+#priceSummary {
+    background: linear-gradient(120deg,
+            #dce5ff 0%,
+            #e9dcff 55%,
+            #fff0cc 100%) !important;
+    color: #14265c !important;
+    border: 1px solid #b6a5f5 !important;
+    border-left: 5px solid #e4ad35 !important;
+    border-radius: 16px !important;
+    box-shadow: 0 10px 25px rgba(25, 45, 110, .16) !important;
+    padding: 18px !important;
+}
+
+/* PREMIUM CLEAR FORM BUTTON */
+#bookingForm button[type="reset"] {
+    background: linear-gradient(135deg,
+            #fff0cc,
+            #eadfff) !important;
+    color: #243d91 !important;
+    border: 1.5px solid #d7b45c !important;
+    border-radius: 12px !important;
+    box-shadow: 0 5px 15px rgba(40, 50, 120, .15) !important;
+    font-weight: 700 !important;
+    transition: .25s ease !important;
+}
+
+#bookingForm button[type="reset"]:hover {
+    background: linear-gradient(135deg,
+            #315efb,
+            #7045c8) !important;
+    color: #ffffff !important;
+    border-color: #e4bd62 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(49, 94, 251, .28) !important;
+}
+
+/* PREMIUM TABLE DESIGN */
+.table-wrapper {
+    border: 1px solid #aebfff !important;
+    border-radius: 16px !important;
+    overflow: hidden;
+    box-shadow: 0 10px 28px rgba(15, 35, 100, .16) !important;
+}
+
+.data-table thead th {
+    background: linear-gradient(120deg, #2456e8, #5931a8) !important;
+    color: #ffe18a !important;
+}
+
+.data-table tbody tr:nth-child(odd) {
+    background: linear-gradient(90deg, #dce6ff, #e9ddff) !important;
+}
+
+.data-table tbody tr:nth-child(even) {
+    background: linear-gradient(90deg, #eee6ff, #fff0e2) !important;
+}
+
+.data-table tbody tr:hover {
+    background: linear-gradient(90deg, #c8d8ff, #e0cfff) !important;
+}
+
+/* PREMIUM QR CONTAINER */
+#qrCodeArea {
+    background: linear-gradient(135deg, #dce6ff, #e5d9ff, #fff0d0) !important;
+    border: 2px dashed #8064df !important;
+    border-radius: 18px !important;
+    padding: 20px !important;
+}
+
+#qrCodeArea img,
+#qrCodeArea canvas {
+    background: #ffffff !important;
+    padding: 10px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 8px 22px rgba(35, 65, 150, .20) !important;
+}
+
+/* Digital Ticket - Premium Design */
+#digital-ticket fieldset {
+    background: linear-gradient(135deg, #e8edff, #eee5ff, #fff0dc) !important;
+    border: 1px solid #91aaff !important;
+    border-radius: 24px !important;
+    box-shadow: 0 12px 35px rgba(40, 70, 160, .20) !important;
+    padding: 28px !important;
+}
+
+#digital-ticket fieldset legend {
+    background: linear-gradient(135deg, #315efb, #172d72) !important;
+    border: 1px solid #8baaff !important;
+    border-radius: 14px !important;
+    box-shadow: 0 7px 18px rgba(30, 60, 150, .25) !important;
+}
+
+#digital-ticket fieldset img,
+#digital-ticket fieldset canvas {
+    background: #fff !important;
+    padding: 12px !important;
+    border-radius: 14px !important;
+    box-shadow: 0 8px 24px rgba(20, 40, 100, .18) !important;
+}
+
+/* My Profile - Premium Blue Theme */
+#profileForm fieldset {
+    background: linear-gradient(135deg, #e5ebff, #eee5ff, #fff0df) !important;
+    border: 1px solid #a5baff !important;
+    border-radius: 22px !important;
+    box-shadow: 0 12px 30px rgba(40, 70, 160, .18) !important;
+}
+
+#profileForm legend {
+    background: linear-gradient(135deg, #315efb, #172d72) !important;
+    border: 1px solid #ffd166 !important;
+    border-radius: 14px !important;
+    box-shadow: 0 7px 18px rgba(30, 60, 150, .25) !important;
+}
+
+#profileForm input {
+    background: linear-gradient(135deg, #fff, #edf1ff) !important;
+    border: 1px solid #bdcaff !important;
+    border-radius: 14px !important;
+    color: #142653 !important;
+    box-shadow: 0 5px 14px rgba(40, 70, 160, .08) !important;
+}
+
+#profileForm button[type="submit"] {
+    background: linear-gradient(135deg, #477dff, #214bdc) !important;
+    color: #fff !important;
+    border: 1px solid #8eaeff !important;
+    border-radius: 14px !important;
+    box-shadow: 0 7px 18px rgba(40, 80, 200, .25) !important;
+}
