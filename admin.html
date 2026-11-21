@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Movie Ticket Management System</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="logo" href="index.html">MTMS</a>
+        <nav><a href="index.html">Home</a><a href="admin.html">Dashboard</a><a href="login.html" id="logoutLink">Logout</a></nav>
+    </header>
+    <main class="dashboard">
+        <div class="dashboard-heading"><div><p class="tag">MOVIE TICKET MANAGEMENT SYSTEM</p><h1>Welcome, Admin</h1></div><span class="role-label">Admin Dashboard</span></div>
+        
+        <section class="panel">
+            <h2>Manage Users</h2>
+            <form id="userForm" class="inline-form">
+                <input id="userName" placeholder="User name">
+                <input id="userEmail" type="email" placeholder="User email">
+                <select id="userRole"><option value="buyer">Ticket Buyer</option><option value="employee">Employee</option><option value="renter">Theater Renter</option></select>
+                <button class="button" type="submit">Add User</button>
+            </form>
+            <input class="search" id="userSearch" placeholder="Search users">
+            <div class="table-wrap"><table><thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Action</th></tr></thead><tbody id="userTable"></tbody></table></div>
+        </section>
+        <section class="panel">
+            <h2>Manage Theaters</h2>
+            <form id="theaterForm" class="inline-form">
+                <input id="theaterName" placeholder="Theater name">
+                <input id="theaterLocation" placeholder="Location">
+                <input id="theaterScreens" type="number" min="1" placeholder="Screens">
+                <button class="button" type="submit">Add Theater</button>
+            </form>
+            <input class="search" id="theaterSearch" placeholder="Search theaters">
+            <div class="table-wrap"><table><thead><tr><th>Theater</th><th>Location</th><th>Screens</th><th>Action</th></tr></thead><tbody id="theaterTable"></tbody></table></div>
+        </section>
+        <section class="panel">
+            <h2>Platform Summary</h2>
+            <div class="summary-grid"><div><strong id="totalUsers">0</strong><span>Users</span></div><div><strong id="totalTheaters">0</strong><span>Theaters</span></div><div><strong id="totalBookings">0</strong><span>Bookings</span></div></div>
+        </section>
+
+    </main>
+    <script src="js/admin.js"></script>
+</body>
+</html>
